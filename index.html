@@ -64,19 +64,22 @@
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
                 <h2 class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Demonstração Interativa</h2>
                 <p class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
-                    Conheça o ZacPoint por dentro
+                    Conheça o Ecossistema ZacPoint por dentro
                 </p>
                 <p class="text-slate-500">
-                    Clique nas abas abaixo para alternar os modos de registro e ver a tela real do sistema.
+                    Clique nas abas abaixo para navegar entre os módulos de registro e o app exclusivo do colaborador.
                 </p>
             </div>
 
-            <div class="flex justify-center p-1 bg-slate-200/80 backdrop-blur rounded-2xl max-w-md mx-auto mb-16 border border-slate-300/50">
-                <button id="tab-facial" onclick="alternarModo('facial')" class="w-1/2 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 bg-indigo-600 text-white shadow-md">
+            <div class="flex flex-col sm:flex-row justify-center p-1.5 bg-slate-200/80 backdrop-blur rounded-2xl max-w-2xl mx-auto mb-16 border border-slate-300/50 gap-1">
+                <button id="tab-facial" onclick="alternarModo('facial')" class="w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 bg-indigo-600 text-white shadow-md">
                     📷 Biometria Facial
                 </button>
-                <button id="tab-cracha" onclick="alternarModo('cracha')" class="w-1/2 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900">
+                <button id="tab-cracha" onclick="alternarModo('cracha')" class="w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900">
                     🪪 Leitor de Crachá
+                </button>
+                <button id="tab-colaborador" onclick="alternarModo('colaborador')" class="w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900">
+                    📱 App Colaborador
                 </button>
             </div>
 
@@ -107,6 +110,37 @@
                                 <div class="flex items-center gap-2">✔ Sincronização imediata com o banco de dados</div>
                             </div>
                         </div>
+
+                        <div id="texto-colaborador" class="space-y-4 transition-all duration-300 opacity-0 hidden">
+                            <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Transparência & Gestão</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">ZacPoint Colaborador</h3>
+                            <p class="text-slate-600 leading-relaxed">
+                                Uma extensão poderosa criada para dar autonomia ao funcionário e controle em tempo real para a gerência. O colaborador tem acesso direto ao seu próprio histórico detalhado de marcações e extrato do Banco de Horas, eliminando surpresas no fim do mês e reduzindo a carga do setor de RH.
+                            </p>
+                            <div class="bg-white border border-slate-200 rounded-xl p-5 text-sm text-slate-600 space-y-3 shadow-sm">
+                                <div class="flex items-start gap-2">
+                                    <span class="text-purple-600 font-bold">📊</span>
+                                    <div>
+                                        <strong class="text-slate-900 block">Histórico & Banco de Horas</strong>
+                                        Transparência total para o funcionário auditar e acompanhar suas marcações diárias e saldo acumulado.
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2 border-t border-slate-100 pt-3">
+                                    <span class="text-red-500 font-bold">🚨</span>
+                                    <div>
+                                        <strong class="text-slate-900 block">Alertas Automáticos de Desvios</strong>
+                                        Caso o colaborador se atrase ou ultrapasse o limite do intervalo de almoço, o sistema dispara uma notificação imediata para o painel do gerente.
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2 border-t border-slate-100 pt-3">
+                                    <span class="text-blue-500 font-bold">💬</span>
+                                    <div>
+                                        <strong class="text-slate-900 block">Comunicação Direta</strong>
+                                        Facilita o envio de justificativas de atraso ou ocorrências diretamente para a liderança através do aplicativo.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -125,6 +159,10 @@
                                  class="absolute inset-0 w-full h-full object-contain bg-black transition-all duration-500 opacity-0 z-0 p-2"
                                  onerror="this.outerHTML='<div id=\'img-cracha\' class=\'absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-xs text-slate-500 bg-slate-900 z-0 opacity-0\'><svg class=\'w-10 h-10 mb-2 text-slate-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z\'></path></svg><span>Falta subir a foto:<br><b class=\'text-emerald-400\'>tela-cracha.jpg</b></span></div>'">
                         
+                            <img id="img-colaborador" src="tela-colaborador.jpg" alt="Tela do Aplicativo do Colaborador" 
+                                 class="absolute inset-0 w-full h-full object-contain bg-black transition-all duration-500 opacity-0 z-0 p-2"
+                                 onerror="this.outerHTML='<div id=\'img-colaborador\' class=\'absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-xs text-slate-500 bg-slate-900 z-0 opacity-0\'><svg class=\'w-10 h-10 mb-2 text-slate-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z\'></path></svg><span>Falta subir a foto:<br><b class=\'text-purple-400\'>tela-colaborador.jpg</b></span></div>'">
+
                         </div>
                     </div>
                 </div>
@@ -141,12 +179,12 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-lg transition-all">
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">🛡️ Segurança e Auditoria</h4>
-                    <p class="text-slate-600">Registros criptografados que geram um histórico inviolável de todas as batidas de ponto da sua equipe.</p>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">🛡️ Segurança e Auditoria Jurídica</h4>
+                    <p class="text-slate-600">Registros encriptados em conformidade com as regras administrativas, gerando um histórico confiável e blindado contra fraudes.</p>
                 </div>
                 <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-lg transition-all">
-                    <h4 class="text-xl font-bold text-slate-900 mb-2">📊 Relatórios Prontos</h4>
-                    <p class="text-slate-600">Esqueça o fechamento manual de planilhas. Exporte dados completos com poucos cliques para o setor de administração.</p>
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">📊 Relatórios de Gestão Imediatos</h4>
+                    <p class="text-slate-600">Esqueça a conferência manual no fim do mês. Exporte arquivos completos consolidados prontos para a folha de pagamento.</p>
                 </div>
             </div>
         </div>
@@ -155,7 +193,7 @@
     <section class="bg-slate-900 text-white py-20 text-center">
         <div class="max-w-4xl mx-auto px-4 space-y-6">
             <h2 class="text-3xl font-extrabold">Pronto para modernizar a gestão de ponto?</h2>
-            <p class="text-slate-400 max-w-xl mx-auto text-sm">Leve o ZacPoint para a sua empresa e automatize os processos de assiduidade de forma inteligente.</p>
+            <p class="text-slate-400 max-w-xl mx-auto text-sm">Leve o ecossistema completo do ZacPoint para a sua empresa e automatize os processos de assiduidade de forma inteligente.</p>
             <a href="https://wa.me/5521982814880" target="_blank" class="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all inline-block shadow-2xl mt-4">
                 Falar com Especialista via WhatsApp
             </a>
@@ -176,50 +214,35 @@
 
     <script>
         function alternarModo(modo) {
-            // Referências dos elementos
-            const tabFacial = document.getElementById('tab-facial');
-            const tabCracha = document.getElementById('tab-cracha');
+            const modos = ['facial', 'cracha', 'colaborador'];
             
-            const imgFacial = document.getElementById('img-facial');
-            const imgCracha = document.getElementById('img-cracha');
-            
-            const txtFacial = document.getElementById('texto-facial');
-            const txtCracha = document.getElementById('texto-cracha');
-
-            if (modo === 'facial') {
-                // Atualiza Botões
-                tabFacial.className = "w-1/2 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 bg-indigo-600 text-white shadow-md";
-                tabCracha.className = "w-1/2 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900";
+            modos.forEach(m => {
+                const btn = document.getElementById(`tab-${m}`);
+                const img = document.getElementById(`img-${m}`);
+                const txt = document.getElementById(`texto-${m}`);
                 
-                // Transição Imagens (Z-index e Opacidade)
-                imgFacial.style.opacity = "1";
-                imgFacial.style.zIndex = "10";
-                imgCracha.style.opacity = "0";
-                imgCracha.style.zIndex = "0";
-                
-                // Alterna Textos Explicativos
-                txtFacial.classList.remove('hidden');
-                setTimeout(() => txtFacial.classList.add('opacity-100'), 50);
-                txtCracha.classList.add('hidden');
-                txtCracha.classList.remove('opacity-100');
-                
-            } else if (modo === 'cracha') {
-                // Atualiza Botões
-                tabCracha.className = "w-1/2 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 bg-indigo-600 text-white shadow-md";
-                tabFacial.className = "w-1/2 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900";
-                
-                // Transição Imagens (Z-index e Opacidade)
-                imgCracha.style.opacity = "1";
-                imgCracha.style.zIndex = "10";
-                imgFacial.style.opacity = "0";
-                imgFacial.style.zIndex = "0";
-                
-                // Alterna Textos Explicativos
-                txtCracha.classList.remove('hidden');
-                setTimeout(() => txtCracha.classList.add('opacity-100'), 50);
-                txtFacial.classList.add('hidden');
-                txtFacial.classList.remove('opacity-100');
-            }
+                if (m === modo) {
+                    // Estilo Ativo do Botão
+                    if (btn) btn.className = "w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 bg-indigo-600 text-white shadow-md";
+                    // Transição de Imagem (Traz para frente com Opacidade 1)
+                    if (img) { img.style.opacity = "1"; img.style.zIndex = "10"; }
+                    // Exibe o Bloco de Texto correspondente
+                    if (txt) {
+                        txt.classList.remove('hidden');
+                        setTimeout(() => txt.classList.add('opacity-100'), 50);
+                    }
+                } else {
+                    // Estilo Inativo do Botão
+                    if (btn) btn.className = "w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900";
+                    // Transição de Imagem (Manda para trás com Opacidade 0)
+                    if (img) { img.style.opacity = "0"; img.style.zIndex = "0"; }
+                    // Oculta o Bloco de Texto
+                    if (txt) {
+                        txt.classList.add('hidden');
+                        txt.classList.remove('opacity-100');
+                    }
+                }
+            });
         }
     </script>
 
