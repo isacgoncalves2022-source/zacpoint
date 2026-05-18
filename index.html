@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZacPoint - Controle de Ponto Inteligente</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         html { scroll-behavior: smooth; }
@@ -15,11 +13,9 @@
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased">
 
-    <!-- NAV BAR -->
     <header class="fixed top-0 left-0 right-0 bg-slate-900/90 backdrop-blur-md z-50 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <!-- A SUA LOGO REAL ENTRA AQUI -->
                 <div class="h-10 flex items-center justify-center">
                     <img src="logo-zacpoint.png" alt="Logo ZacPoint" class="h-full w-auto object-contain" onerror="this.outerHTML='<div class=\'bg-indigo-600 p-2 rounded-lg text-white text-xs font-bold\'>LOGO</div>'">
                 </div>
@@ -40,7 +36,6 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 text-white pt-32 pb-20 overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(79,70,229,0.15),transparent_45%)]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
@@ -64,70 +59,109 @@
         </div>
     </section>
 
-    <!-- SEÇÃO: IMAGENS DO APLICATIVO (FORMATO CELULAR / RETRATO) -->
-    <section id="telas" class="py-24 bg-slate-50">
+    <section id="telas" class="py-24 bg-slate-50 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                <h2 class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Interface Real</h2>
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+                <h2 class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Demonstração Interativa</h2>
                 <p class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
                     Conheça o ZacPoint por dentro
                 </p>
                 <p class="text-slate-500">
-                    Um design limpo e direto ao ponto para facilitar o dia a dia da sua operação.
+                    Clique nas abas abaixo para alternar os modos de registro e ver a tela real do sistema.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start justify-center">
-                <!-- Imagem 1: Tela de Reconhecimento Facial (Celular) -->
-                <div class="space-y-6 w-full flex flex-col items-center">
-                    <div class="bg-slate-900 rounded-[2.5rem] aspect-[9/16] w-full max-w-[280px] overflow-hidden border-8 border-slate-800 shadow-2xl relative flex items-center justify-center">
-                        <!-- Print Facial -->
-                        <img src="tela-facial.jpg" alt="Tela de Reconhecimento Facial do ZacPoint" class="w-full h-full object-contain bg-black text-slate-400 text-center text-xs p-4" onerror="this.outerHTML='<div class=\'text-slate-500 flex flex-col items-center p-4 text-center\'><svg class=\'w-10 h-10 mb-2 text-slate-400\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z\'></path></svg><span>Falta o print: tela-facial.jpg</span></div>'">
+            <div class="flex justify-center p-1 bg-slate-200/80 backdrop-blur rounded-2xl max-w-md mx-auto mb-16 border border-slate-300/50">
+                <button id="tab-facial" onclick="alternarModo('facial')" class="w-1/2 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 bg-indigo-600 text-white shadow-md">
+                    📷 Biometria Facial
+                </button>
+                <button id="tab-cracha" onclick="alternarModo('cracha')" class="w-1/2 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900">
+                    🪪 Leitor de Crachá
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-5xl mx-auto">
+                
+                <div class="lg:col-span-5 order-2 lg:order-1 text-center lg:text-left space-y-6">
+                    <div id="conteudo-textos">
+                        <div id="texto-facial" class="space-y-4 transition-all duration-300 opacity-100 block">
+                            <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Segurança Máxima</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Reconhecimento Facial Biométrico</h3>
+                            <p class="text-slate-600 leading-relaxed">
+                                Um sistema inteligente anti-fraude que valida a identidade do colaborador em menos de 2 segundos. O algoritmo mapeia os pontos faciais garantindo alta precisão, mesmo em ambientes com pouca luz.
+                            </p>
+                            <div class="bg-white border border-slate-200 rounded-xl p-4 text-sm text-slate-600 space-y-2 shadow-sm">
+                                <div class="flex items-center gap-2">✔ Detecção de vivacidade (Bloqueia fotos/vídeos)</div>
+                                <div class="flex items-center gap-2">✔ Registro veloz sem contato físico</div>
+                            </div>
+                        </div>
+
+                        <div id="texto-cracha" class="space-y-4 transition-all duration-300 opacity-0 hidden">
+                            <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Alta Agilidade</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Identificação por Crachá Inteligente</h3>
+                            <p class="text-slate-600 leading-relaxed">
+                                Desenvolvido para rotinas dinâmicas e de alto fluxo. O colaborador aproxima o crachá de identificação física ou digital e o ZacPoint registra o ponto instantaneamente de forma integrada.
+                            </p>
+                            <div class="bg-white border border-slate-200 rounded-xl p-4 text-sm text-slate-600 space-y-2 shadow-sm">
+                                <div class="flex items-center gap-2">✔ Ideal para equipes operacionais e industriais</div>
+                                <div class="flex items-center gap-2">✔ Sincronização imediata com o banco de dados</div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 text-center">Autenticação Facial</h3>
                 </div>
 
-                <!-- Imagem 2: Tela de Leitura de Crachá (Celular) -->
-                <div class="space-y-6 w-full flex flex-col items-center">
-                    <div class="bg-slate-900 rounded-[2.5rem] aspect-[9/16] w-full max-w-[280px] overflow-hidden border-8 border-slate-800 shadow-2xl relative flex items-center justify-center">
-                        <!-- Print Crachá -->
-                        <img src="tela-cracha.jpg" alt="Tela de Leitura de Crachá do ZacPoint" class="w-full h-full object-contain bg-black text-slate-400 text-center text-xs p-4" onerror="this.outerHTML='<div class=\'text-slate-500 flex flex-col items-center p-4 text-center\'><svg class=\'w-10 h-10 mb-2 text-slate-400\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z\'></path></svg><span>Falta o print: tela-cracha.jpg</span></div>'">
+                <div class="lg:col-span-7 order-1 lg:order-2 flex justify-center">
+                    <div class="bg-slate-950 rounded-[3rem] aspect-[9/16] w-full max-w-[340px] overflow-hidden border-[10px] border-slate-800 shadow-2xl relative ring-4 ring-slate-900/20">
+                        
+                        <div class="absolute top-3 left-1/2 transform -translate-x-1/2 w-24 h-4 bg-slate-800 rounded-full z-30"></div>
+                        
+                        <div class="w-full h-full relative bg-slate-900">
+                            
+                            <img id="img-facial" src="tela-facial.jpg" alt="Tela de Reconhecimento Facial" 
+                                 class="absolute inset-0 w-full h-full object-contain bg-black transition-all duration-500 opacity-100 z-10 p-2"
+                                 onerror="this.outerHTML='<div id=\'img-facial\' class=\'absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-xs text-slate-500 bg-slate-900 z-10\'><svg class=\'w-10 h-10 mb-2 text-slate-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z\'></path></svg><span>Falta subir a foto:<br><b class=\'text-indigo-400\'>tela-facial.jpg</b></span></div>'">
+
+                            <img id="img-cracha" src="tela-cracha.jpg" alt="Tela do Leitor de Crachá" 
+                                 class="absolute inset-0 w-full h-full object-contain bg-black transition-all duration-500 opacity-0 z-0 p-2"
+                                 onerror="this.outerHTML='<div id=\'img-cracha\' class=\'absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-xs text-slate-500 bg-slate-900 z-0 opacity-0\'><svg class=\'w-10 h-10 mb-2 text-slate-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z\'></path></svg><span>Falta subir a foto:<br><b class=\'text-emerald-400\'>tela-cracha.jpg</b></span></div>'">
+                        
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 text-center">Leitura de Crachá</h3>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- FUNCIONALIDADES -->
-    <section id="funcionalidades" class="py-24 bg-white">
+    <section id="funcionalidades" class="py-24 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Por Que Escolher</h2>
+                <p class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Desenvolvido para eliminar a burocracia</p>
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Card 1: Facial -->
-                <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-xl hover:border-slate-200 transition-all space-y-6">
-                    <h3 class="text-xl font-bold text-slate-900">Reconhecimento Facial Biométrico</h3>
-                    <p class="text-slate-600 leading-relaxed">Máxima segurança contra fraudes. O colaborador registra o ponto em segundos utilizando a câmera do dispositivo, garantindo a identidade de quem registra.</p>
+                <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-lg transition-all">
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">🛡️ Segurança e Auditoria</h4>
+                    <p class="text-slate-600">Registros criptografados que geram um histórico inviolável de todas as batidas de ponto da sua equipe.</p>
                 </div>
-                <!-- Card 2: Crachá -->
-                <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-xl hover:border-slate-200 transition-all space-y-6">
-                    <h3 class="text-xl font-bold text-slate-900">Identificação por Crachá Inteligente</h3>
-                    <p class="text-slate-600 leading-relaxed">Solução rápida para fluxos de alta rotatividade. Basta aproximar o crachá físico para validar a entrada ou saída no sistema em milissegundos.</p>
+                <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-lg transition-all">
+                    <h4 class="text-xl font-bold text-slate-900 mb-2">📊 Relatórios Prontos</h4>
+                    <p class="text-slate-600">Esqueça o fechamento manual de planilhas. Exporte dados completos com poucos cliques para o setor de administração.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CALL TO ACTION FINAL -->
     <section class="bg-slate-900 text-white py-20 text-center">
         <div class="max-w-4xl mx-auto px-4 space-y-6">
             <h2 class="text-3xl font-extrabold">Pronto para modernizar a gestão de ponto?</h2>
+            <p class="text-slate-400 max-w-xl mx-auto text-sm">Leve o ZacPoint para a sua empresa e automatize os processos de assiduidade de forma inteligente.</p>
             <a href="https://wa.me/5521982814880" target="_blank" class="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all inline-block shadow-2xl mt-4">
                 Falar com Especialista via WhatsApp
             </a>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="bg-slate-950 text-slate-500 py-12 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm">
             <div class="flex items-center gap-2">
@@ -139,6 +173,55 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function alternarModo(modo) {
+            // Referências dos elementos
+            const tabFacial = document.getElementById('tab-facial');
+            const tabCracha = document.getElementById('tab-cracha');
+            
+            const imgFacial = document.getElementById('img-facial');
+            const imgCracha = document.getElementById('img-cracha');
+            
+            const txtFacial = document.getElementById('texto-facial');
+            const txtCracha = document.getElementById('texto-cracha');
+
+            if (modo === 'facial') {
+                // Atualiza Botões
+                tabFacial.className = "w-1/2 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 bg-indigo-600 text-white shadow-md";
+                tabCracha.className = "w-1/2 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900";
+                
+                // Transição Imagens (Z-index e Opacidade)
+                imgFacial.style.opacity = "1";
+                imgFacial.style.zIndex = "10";
+                imgCracha.style.opacity = "0";
+                imgCracha.style.zIndex = "0";
+                
+                // Alterna Textos Explicativos
+                txtFacial.classList.remove('hidden');
+                setTimeout(() => txtFacial.classList.add('opacity-100'), 50);
+                txtCracha.classList.add('hidden');
+                txtCracha.classList.remove('opacity-100');
+                
+            } else if (modo === 'cracha') {
+                // Atualiza Botões
+                tabCracha.className = "w-1/2 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 bg-indigo-600 text-white shadow-md";
+                tabFacial.className = "w-1/2 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900";
+                
+                // Transição Imagens (Z-index e Opacidade)
+                imgCracha.style.opacity = "1";
+                imgCracha.style.zIndex = "10";
+                imgFacial.style.opacity = "0";
+                imgFacial.style.zIndex = "0";
+                
+                // Alterna Textos Explicativos
+                txtCracha.classList.remove('hidden');
+                setTimeout(() => txtCracha.classList.add('opacity-100'), 50);
+                txtFacial.classList.add('hidden');
+                txtFacial.classList.remove('opacity-100');
+            }
+        }
+    </script>
 
 </body>
 </html>
