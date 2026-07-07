@@ -549,71 +549,75 @@
         }
 
         // --- SISTEMA DE EMISSÃO DE HOLERITE EM PDF REAL (CÓDIGO KOTLIN CONVERTIDO) ---
-        function gerarHoleritePDF() {
+       function gerarHoleritePDF() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
-            const nome = nomeDoUtilizador !== "Visitante" ? nomeDoUtilizador : "João Silva";
-            const matricula = document.getElementById('cad-mat').value || "104592";
-            const empresa = "ZACCODE SISTEMAS E TECNOLOGIA LTDA";
-            const mesRef = "Julho / 2026";
+            const nome = "Fundador"; // Exemplo
+            const matricula = "1612";
+            const mesRef = "01/2026";
             
-            // Lógica Matemática Baseada em Tempo Real
-            const horasTrabalhadas = 200; 
-            const salarioBase = 1800.00;
-            const valorReceber = (horasTrabalhadas * (salarioBase / 220)).toFixed(2);
-
-            // Estruturação do PDF Visual
+            // Dados da Empresa
             doc.setFont("helvetica", "bold");
-            doc.setFontSize(22);
-            doc.text("ZACPOINT", 105, 20, null, null, "center");
-            
-            doc.setFontSize(13);
-            doc.text("RECIBO DE PAGAMENTO DE SALÁRIO (HOLERITE)", 105, 30, null, null, "center");
-
-            doc.setFont("helvetica", "normal");
+            doc.setFontSize(14);
+            doc.text("ZACCODE SISTEMAS E TECNOLOGIA LTDA", 105, 15, null, null, "center");
             doc.setFontSize(10);
-            doc.text("_________________________________________________________________________________", 15, 35);
-            doc.text(`Empresa: ${empresa}`, 15, 45);
-            doc.text(`Referência: ${mesRef}`, 150, 45);
-            doc.text("_________________________________________________________________________________", 15, 50);
+            doc.text("CNPJ: 00.000.000/0001-00", 105, 20, null, null, "center");
+            doc.text("Demonstrativo de Pagamento Mensal Pro-Rata", 105, 25, null, null, "center");
+            
+            // Info do Colaborador
+            doc.line(15, 30, 195, 30);
+            doc.text(`Referência: ${mesRef}`, 15, 35);
+            doc.text(`Colaborador: ${nome}`, 15, 40);
+            doc.text(`Matrícula: ${matricula}`, 150, 40);
+            doc.line(15, 45, 195, 45);
 
+            // Cabeçalho da Tabela
             doc.setFont("helvetica", "bold");
-            doc.text(`Colaborador: ${nome}`, 15, 60);
-            doc.text(`Matrícula: ${matricula}`, 150, 60);
-            
-            doc.setFont("helvetica", "normal");
-            doc.text("_________________________________________________________________________________", 15, 65);
+            doc.text("CÓD", 15, 52);
+            doc.text("DESCRIÇÃO", 35, 52);
+            doc.text("REF", 110, 52);
+            doc.text("VENC (R$)", 140, 52);
+            doc.text("DESC (R$)", 175, 52);
+            doc.line(15, 55, 195, 55);
 
-            // Tabela Detalhada
+            // Linhas da Tabela
+            doc.setFont("helvetica", "normal");
+            doc.text("001", 15, 62);
+            doc.text("Salário Normal Proporcional (CLT)", 35, 62);
+            doc.text("31 dias", 110, 62);
+            doc.text("1.860,00", 140, 62);
+            
+            doc.text("112", 15, 70);
+            doc.text("Desconto de Faltas Não Justificadas", 35, 70);
+            doc.text("27 dia(s)", 110, 70);
+            doc.text("1.620,00", 175, 70);
+
+            doc.text("687", 15, 78);
+            doc.text("Desconto Vale Transporte", 35, 78);
+            doc.text("6%", 110, 78);
+            doc.text("111,60", 175, 78);
+
+            doc.text("903", 15, 86);
+            doc.text("Retenção INSS Folha", 35, 86);
+            doc.text("7.5%", 110, 86);
+            doc.text("18,00", 175, 86);
+
+            // Totais
+            doc.line(15, 95, 195, 95);
             doc.setFont("helvetica", "bold");
-            doc.text("Descrição do Evento", 15, 75);
-            doc.text("Referência", 100, 75);
-            doc.text("Vencimentos", 160, 75);
+            doc.text("TOTAL VENCIMENTOS:", 100, 105);
+            doc.text("R$ 1.860,00", 140, 105);
             
-            doc.setFont("helvetica", "normal");
-            doc.text("Salário Base Contratual", 15, 85);
-            doc.text(`220 Horas`, 100, 85);
-            doc.text(`R$ ${salarioBase.toFixed(2)}`, 160, 85);
+            doc.text("TOTAL DESCONTOS:", 100, 112);
+            doc.text("R$ 1.749,60", 175, 112);
             
-            doc.text("Horas Efetivas (Cálculo Base 60)", 15, 95);
-            doc.text(`${horasTrabalhadas} Horas`, 100, 95);
-            doc.text(`R$ ${valorReceber}`, 160, 95);
+            doc.line(15, 118, 195, 118);
+            doc.setFontSize(14);
+            doc.text("VALOR LÍQUIDO A RECEBER: R$ 110,40", 105, 130, null, null, "center");
 
-            doc.text("_________________________________________________________________________________", 15, 105);
-            
-            doc.setFont("helvetica", "bold");
-            doc.setFontSize(12);
-            doc.text("VALOR LÍQUIDO A RECEBER:", 95, 118);
-            doc.text(`R$ ${valorReceber}`, 160, 118);
-
-            doc.setFont("helvetica", "normal");
-            doc.setFontSize(8);
-            doc.text("Documento digital emitido via API de exportação ZacPoint.", 105, 280, null, null, "center");
-            doc.text("Código de Autenticidade: ZP-HOL-2026-99F7", 105, 285, null, null, "center");
-
-            // Baixa o arquivo automaticamente
-            doc.save(`Holerite_ZacPoint_${nome.replace(/\s+/g, '')}.pdf`);
+            doc.save(`Demonstrativo_${nome}.pdf`);
+        }
         }
     </script>
 </body>
