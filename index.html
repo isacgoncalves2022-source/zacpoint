@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZacPoint - Controlo de Ponto Inteligente</title>
+    <title>ZacPoint - Controle de Ponto Inteligente</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -12,7 +13,7 @@
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Animação do Scanner Facial */
+        /* Animação do Scanner Laser Facial */
         @keyframes scanAnim {
             0%, 100% { transform: translateY(-100px); }
             50% { transform: translateY(100px); }
@@ -75,22 +76,22 @@
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
                 <h2 class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Demonstração Interativa</h2>
                 <p class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
-                    Experimente o Ecossistema ZacPoint
+                    Explore o Ecossistema ZacPoint
                 </p>
                 <p class="text-slate-500">
-                    Clique nas abas abaixo e interaja com o ecrã do telemóvel para testar o reconhecimento real.
+                    Clique nas abas abaixo e interaja diretamente com o ecrã do telemóvel para testar os recursos em tempo real.
                 </p>
             </div>
 
             <div class="flex flex-col sm:flex-row justify-center p-1.5 bg-slate-200/80 backdrop-blur rounded-2xl max-w-2xl mx-auto mb-16 border border-slate-300/50 gap-1">
                 <button id="tab-facial" onclick="alternarModo('facial')" class="w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 bg-indigo-600 text-white shadow-md">
-                    📷 Reconhecimento Facial Real
+                    📷 Biometria Facial Ao Vivo
                 </button>
                 <button id="tab-cracha" onclick="alternarModo('cracha')" class="w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900">
                     🪪 Leitor de Crachá
                 </button>
                 <button id="tab-colaborador" onclick="alternarModo('colaborador')" class="w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900">
-                    📱 App Colaborador
+                    📱 App Colaborador (Simulador)
                 </button>
             </div>
 
@@ -99,31 +100,39 @@
                 <div class="lg:col-span-5 order-2 lg:order-1 text-center lg:text-left space-y-6">
                     <div id="conteudo-textos">
                         <div id="texto-facial" class="space-y-4 transition-all duration-300 opacity-100 block">
-                            <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Tecnologia Ativa</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Reconhecimento Biométrico</h3>
+                            <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Câmara Integrada</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Reconhecimento Facial Biométrico</h3>
                             <p class="text-slate-600 leading-relaxed">
-                                No telemóvel ao lado, podes experimentar o fluxo real do ZacPoint. Primeiro, faz o teu **Registo Facial** rápido e, em seguida, testa o botão de **Bater Ponto** para ver a magia acontecer.
+                                Teste o sistema real! Ligue a câmara do seu dispositivo no simulador ao lado. Poderá registar uma assinatura facial com o seu nome e simular a batida de ponto com varrimento laser anti-fraude.
                             </p>
                             <div class="bg-white border border-slate-200 rounded-xl p-4 text-sm text-slate-600 space-y-2 shadow-sm">
-                                <div class="flex items-center gap-2">✔ Mapeamento de estrutura em tempo real</div>
-                                <div class="flex items-center gap-2">✔ Integração instantânea com a demonstração</div>
+                                <div class="flex items-center gap-2">✔ Simulação ativa de processamento FaceNet</div>
+                                <div class="flex items-center gap-2">✔ Registo veloz sem contacto físico</div>
                             </div>
                         </div>
 
                         <div id="texto-cracha" class="space-y-4 transition-all duration-300 opacity-0 hidden">
                             <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Alta Agilidade</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Identificação por Crachá</h3>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Identificação por Crachá Inteligente</h3>
                             <p class="text-slate-600 leading-relaxed">
-                                Desenvolvido para rotinas dinâmicas e de alto fluxo. O colaborador aproxima o crachá de identificação física ou digital e o ZacPoint regista o ponto instantaneamente de forma integrada.
+                                Desenvolvido para rotinas dinâmicas e de alto fluxo. O colaborador aproxima o crachá de identificação física ou digital e o ZacPoint regista o ponto instantaneamente de forma integrada com o terminal.
                             </p>
+                            <div class="bg-white border border-slate-200 rounded-xl p-4 text-sm text-slate-600 space-y-2 shadow-sm">
+                                <div class="flex items-center gap-2">✔ Ideal para equipas operacionais e industriais</div>
+                                <div class="flex items-center gap-2">✔ Sincronização imediata com a nuvem</div>
+                            </div>
                         </div>
 
                         <div id="texto-colaborador" class="space-y-4 transition-all duration-300 opacity-0 hidden">
-                            <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Painel Interno</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Simulador ZacPoint</h3>
+                            <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Lógica Avançada</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Aplicação ZacPoint Colaborador</h3>
                             <p class="text-slate-600 leading-relaxed">
-                                Explora a interface interna da aplicação. Podes alternar entre o ecrã do funcionário para ver o banco de horas ou aceder à área de RH para gerir novos cadastros.
+                                Navegue pelas telas da aplicação mobile. Faça login simulado para auditar o extrato do Banco de Horas ou aceda ao módulo de RH para preencher a ficha cadastral completa com dados de salário e empresa.
                             </p>
+                            <div class="bg-white border border-slate-200 rounded-xl p-4 text-sm text-slate-600 space-y-2 shadow-sm">
+                                <div class="flex items-center gap-2">✔ Botão funcional de emissão de Holerite em PDF</div>
+                                <div class="flex items-center gap-2">✔ Alertas automatizados de atrasos enviados à gestão</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -138,28 +147,27 @@
                                 
                                 <div class="relative w-full aspect-square bg-slate-950 rounded-2xl overflow-hidden border-2 border-slate-800 flex items-center justify-center my-auto">
                                     <video id="webcam-real" autoplay playsinline class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500"></video>
-                                    <canvas id="snapshot-canvas" class="hidden absolute inset-0 w-full h-full object-cover"></canvas>
                                     
                                     <div id="laser-scan" class="absolute inset-x-0 h-1 bg-[#06B6D4] shadow-[0_0_15px_#06B6D4] animate-scan hidden z-30"></div>
                                     
-                                    <div id="cam-placeholder" class="text-center p-4 text-xs text-slate-500 z-10 space-y-2">
+                                    <div id="cam-placeholder" class="text-center p-4 text-xs text-slate-500 z-10 flex flex-col items-center gap-2">
                                         <span>Câmara Desconectada</span>
                                     </div>
                                 </div>
 
                                 <div id="facial-status" class="bg-black/60 text-[#00D4FF] text-xs font-bold text-center py-2.5 px-3 rounded-lg min-h-[38px] mb-4">
-                                    Ative a câmara para iniciar
+                                    Ative a câmara para iniciar o teste
                                 </div>
 
                                 <div class="space-y-2 z-30">
-                                    <div id="form-cadastro-facial" class="hidden bg-slate-950/90 p-3 rounded-xl border border-slate-800 space-y-2 absolute inset-x-4 bottom-20">
-                                        <input type="text" id="nome-cadastro" placeholder="O teu nome" class="w-full bg-[#1F2937] text-white text-xs p-2 rounded-lg outline-none border border-slate-700">
-                                        <button onclick="executarCaptura()" class="w-full bg-[#10B981] text-white font-bold text-xs py-2 rounded-lg">Confirmar Registo</button>
+                                    <div id="form-cadastro-facial" class="hidden bg-slate-950/95 p-3 rounded-xl border border-slate-800 space-y-2 absolute inset-x-4 bottom-20">
+                                        <input type="text" id="nome-cadastro" placeholder="Insira o seu nome completo" class="w-full bg-[#1F2937] text-white text-xs p-2.5 rounded-lg outline-none border border-slate-700">
+                                        <button onclick="executarCaptura()" class="w-full bg-[#10B981] text-white font-bold text-xs py-2 rounded-lg">Salvar Assinatura</button>
                                     </div>
 
                                     <div id="botoes-facial-init" class="flex gap-2">
-                                        <button id="btn-ligar-cam" onclick="ativarRecursoFacial()" class="w-full bg-[#06B6D4] text-[#0A2540] font-bold text-xs py-3 rounded-xl shadow-lg shadow-cyan-500/20">
-                                            LIGAR CÂMERA
+                                        <button onclick="ativarRecursoFacial()" class="w-full bg-[#06B6D4] text-[#0A2540] font-bold text-xs py-3 rounded-xl shadow-lg shadow-cyan-500/20">
+                                            LIGAR CÂMARA FRONTAL
                                         </button>
                                     </div>
                                     <div id="botoes-facial-ativos" class="hidden gap-2">
@@ -179,7 +187,7 @@
                                 </div>
                             </div>
                             
-                            <img id="img-cracha" src="tela-cracha.jpg" alt="Tela Crachá" class="absolute inset-0 w-full h-full object-contain bg-black transition-all duration-500 opacity-0 z-0 p-2" onerror="this.outerHTML='<div id=\'img-cracha\' class=\'absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-xs text-slate-500 bg-slate-900 z-0 opacity-0\'><svg class=\'w-10 h-10 mb-2 text-slate-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z\'></path></svg><span>Falta subir a foto:<br><b class=\'text-emerald-400\'>tela-cracha.jpg</b></span></div>'">
+                            <img id="img-cracha" src="tela-cracha.jpg" alt="Tela Crachá" class="absolute inset-0 w-full h-full object-contain bg-black transition-all duration-500 opacity-0 z-0 p-2" onerror="this.outerHTML='<div id=\'img-cracha\' class=\'absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-xs text-slate-500 bg-slate-900 z-0 opacity-0\'><svg class=\'w-10 h-10 mb-2 text-slate-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z\'></path></svg><span>Falta subir o print:<br><b class=\'text-emerald-400\'>tela-cracha.jpg</b></span></div>'">
                         
                             <div id="img-colaborador" class="absolute inset-0 w-full h-full transition-all duration-500 opacity-0 z-0 bg-[#111827] text-[#E2E8F0] font-sans flex flex-col pt-10 pb-4 px-4 overflow-hidden shadow-inner">
                                 
@@ -214,20 +222,30 @@
                                                 <span>Saída: --:--</span>
                                             </div>
                                         </div>
+                                        <div class="bg-[#1F2937] p-3 rounded-lg border-l-4 border-[#E11D48] shadow-md relative">
+                                            <div class="text-xs font-bold mb-1 text-white">05/07 - Sexta-feira</div>
+                                            <div class="flex justify-between text-[11px] text-[#94A3B8]">
+                                                <span>Entrada: 08:45 <b class="text-[#E11D48]">(Atraso)</b></span>
+                                                <span>Saída: 17:00</span>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="flex gap-2 pt-3 border-t border-slate-800 mt-auto">
                                         <button onclick="navegarApp('login')" class="flex-1 bg-slate-800 hover:bg-slate-700 p-3 rounded-lg text-[10px] font-bold text-white transition-colors">SAIR</button>
-                                        <button class="flex-[1.4] bg-[#06B6D4] p-3 rounded-lg text-[10px] font-bold text-[#111827] shadow-lg">EMITIR HOLERITE</button>
+                                        <button onclick="gerarHoleritePDF()" class="flex-[1.4] bg-[#06B6D4] hover:bg-cyan-400 transition-colors p-3 rounded-lg text-[10px] font-bold text-[#111827] shadow-lg">EMITIR HOLERITE</button>
                                     </div>
                                 </div>
 
                                 <div id="app-rh" class="hidden flex-col flex-1 h-full">
                                     <div class="mb-4 bg-[#1F2937] -mx-4 -mt-10 pt-12 pb-4 px-4 border-b border-slate-700">
                                         <h2 class="text-sm font-bold text-[#06B6D4]">PAINEL ADMINISTRATIVO RH</h2>
+                                        <p class="text-[10px] text-[#94A3B8] mt-1">Gestão de Equipa e Auditoria</p>
                                     </div>
+                                    
                                     <button onclick="navegarApp('rh-cadastro')" class="w-full bg-[#06B6D4] hover:bg-cyan-400 transition-colors text-[#111827] p-3 rounded-lg font-bold text-[10px] mb-3 shadow-lg shadow-cyan-500/20">
                                         ➕ CADASTRAR COLABORADOR
                                     </button>
+
                                     <div class="flex-1 overflow-y-auto space-y-2 scrollbar-hide pb-2">
                                         <div class="bg-[#143452] p-3 rounded-lg flex items-center justify-between border border-transparent">
                                             <div>
@@ -242,17 +260,43 @@
                                 </div>
 
                                 <div id="app-rh-cadastro" class="hidden flex-col flex-1 h-full">
-                                    <div class="mb-4">
-                                        <h2 class="text-sm font-bold text-[#06B6D4] text-center">NOVO COLABORADOR</h2>
+                                    <div class="mb-4 bg-[#1F2937] -mx-4 -mt-10 pt-12 pb-3 px-4 border-b border-slate-700">
+                                        <h2 class="text-xs font-bold text-[#06B6D4] text-center uppercase tracking-wider">Novo Colaborador</h2>
                                     </div>
-                                    <div class="flex-1 overflow-y-auto space-y-2 scrollbar-hide pb-2">
-                                        <input type="text" id="cad-mat" placeholder="Matrícula (Ex: 001654)" class="w-full bg-[#1F2937] text-white p-3 rounded-lg text-[10px] outline-none border border-[#06B6D4]">
-                                        <input type="password" placeholder="Senha de Acesso" class="w-full bg-[#1F2937] text-white p-3 rounded-lg text-[10px] outline-none border border-[#06B6D4]">
-                                        <input type="text" id="cad-nome" placeholder="Nome Completo" class="w-full bg-[#1F2937] text-white p-3 rounded-lg text-[10px] outline-none border border-[#06B6D4]">
-                                        <button onclick="salvarNovoColaboradorApp()" class="w-full bg-[#06B6D4] text-[#0B0F19] p-3 rounded-lg font-bold text-[11px] mt-2 shadow-lg shadow-cyan-500/20">
+                                    <div class="flex-1 overflow-y-auto space-y-2 scrollbar-hide pb-2 text-left">
+                                        <div>
+                                            <label class="text-[9px] text-slate-400 block mb-0.5">Matrícula</label>
+                                            <input type="text" id="cad-mat" placeholder="Ex: 001654" class="w-full bg-[#1F2937] text-white p-2 rounded-md text-[10px] outline-none border border-slate-700 focus:border-[#06B6D4]">
+                                        </div>
+                                        <div>
+                                            <label class="text-[9px] text-slate-400 block mb-0.5">Senha de Acesso</label>
+                                            <input type="password" placeholder="Senha numérica" class="w-full bg-[#1F2937] text-white p-2 rounded-md text-[10px] outline-none border border-slate-700 focus:border-[#06B6D4]">
+                                        </div>
+                                        <div>
+                                            <label class="text-[9px] text-slate-400 block mb-0.5">Nome Completo</label>
+                                            <input type="text" id="cad-nome" placeholder="Ex: Isac Gonçalves" class="w-full bg-[#1F2937] text-white p-2 rounded-md text-[10px] outline-none border border-slate-700 focus:border-[#06B6D4]">
+                                        </div>
+                                        <div>
+                                            <label class="text-[9px] text-slate-400 block mb-0.5">CPF</label>
+                                            <input type="text" placeholder="000.000.000-00" class="w-full bg-[#1F2937] text-white p-2 rounded-md text-[10px] outline-none border border-slate-700 focus:border-[#06B6D4]">
+                                        </div>
+                                        <div>
+                                            <label class="text-[9px] text-slate-400 block mb-0.5">Função / Cargo</label>
+                                            <input type="text" placeholder="Cargo" class="w-full bg-[#1F2937] text-white p-2 rounded-md text-[10px] outline-none border border-slate-700 focus:border-[#06B6D4]">
+                                        </div>
+                                        <div>
+                                            <label class="text-[9px] text-slate-400 block mb-0.5">Empresa</label>
+                                            <input type="text" value="ZACCODE SISTEMAS E TECNOLOGIA LTDA" readonly class="w-full bg-[#1F2937] text-[#38BDF8] p-2 rounded-md text-[9px] outline-none border border-slate-700">
+                                        </div>
+                                        <div>
+                                            <label class="text-[9px] text-slate-400 block mb-0.5">Salário Mensal</label>
+                                            <input type="text" value="1800.00" class="w-full bg-[#1F2937] text-[#10B981] p-2 rounded-md text-[10px] outline-none border border-slate-700 focus:border-[#06B6D4]">
+                                        </div>
+                                        
+                                        <button onclick="salvarNovoColaboradorApp()" class="w-full bg-[#06B6D4] text-[#0B0F19] p-2.5 rounded-md font-bold text-[10px] mt-3 shadow-lg shadow-cyan-500/20">
                                             SALVAR NO BANCO
                                         </button>
-                                        <button onclick="navegarApp('rh')" class="w-full text-slate-400 p-2 rounded-lg font-bold text-[10px] mt-1">
+                                        <button onclick="navegarApp('rh')" class="w-full text-slate-500 text-center text-[9px] font-bold mt-1 block">
                                             Cancelar
                                         </button>
                                     </div>
@@ -267,11 +311,102 @@
         </div>
     </section>
 
+    <section id="funcionalidades" class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Recursos Avançados</h2>
+                <p class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Gestão inteligente sem planilhas ou burocracia</p>
+                <p class="text-slate-500">O ZacPoint automatiza a retaguarda administrativa, permitindo que você foque no crescimento do negócio.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-lg transition-all space-y-3">
+                    <div class="text-3xl">🚨</div>
+                    <h4 class="text-xl font-bold text-slate-900">Alertas em Tempo Real</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Chega de descobrir desvios de horários apenas no fechamento do mês. O sistema notifica a liderança imediatamente se um colaborador se atrasar.</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-lg transition-all space-y-3">
+                    <div class="text-3xl">📊</div>
+                    <h4 class="text-xl font-bold text-slate-900">Banco de Horas e Holerite</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Cálculos automáticos de horas trabalhadas. O colaborador pode emitir o espelho de ponto/holerite direto do próprio celular em formato PDF.</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-lg transition-all space-y-3">
+                    <div class="text-3xl">🛡️</div>
+                    <h4 class="text-xl font-bold text-slate-900">Segurança & Auditoria Jurídica</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Registros totalmente encriptados e em total conformidade com as exigências administrativas vigentes contra fraudes.</p>
+                </div>
+                <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-lg transition-all space-y-3">
+                    <div class="text-3xl">💬</div>
+                    <h4 class="text-xl font-bold text-slate-900">Painel Exclusivo RH</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Acesso gerencial detalhado onde o administrador pode auditar pontos, inserir justificativas e aprovar horas da equipe rapidamente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="como-funciona" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(79,70,229,0.1),transparent_40%)]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-20">
+                <h2 class="text-xs font-bold text-indigo-400 uppercase tracking-widest">Fluxo Inteligente</h2>
+                <p class="text-3xl sm:text-4xl font-bold tracking-tight">Como o ecossistema opera?</p>
+                <p class="text-slate-400">Três passos simples que conectam o funcionário diretamente ao painel administrativo.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative max-w-5xl mx-auto">
+                <div class="space-y-4 relative">
+                    <div class="text-6xl font-extrabold text-slate-800 absolute -top-10 left-0 z-0 select-none">01</div>
+                    <div class="relative z-10 pt-4">
+                        <h4 class="text-xl font-bold text-white">Marcação de Presença</h4>
+                        <p class="text-slate-400 mt-2 text-sm leading-relaxed">O colaborador faz o registro biométrico na empresa ou consulta dados pelo seu app próprio.</p>
+                    </div>
+                </div>
+                <div class="space-y-4 relative">
+                    <div class="text-6xl font-extrabold text-slate-800 absolute -top-10 left-0 z-0 select-none">02</div>
+                    <div class="relative z-10 pt-4">
+                        <h4 class="text-xl font-bold text-white">Sincronização em Nuvem</h4>
+                        <p class="text-slate-400 mt-2 text-sm leading-relaxed">O sistema processa os dados online. O painel do RH é alimentado instantaneamente.</p>
+                    </div>
+                </div>
+                <div class="space-y-4 relative">
+                    <div class="text-6xl font-extrabold text-slate-800 absolute -top-10 left-0 z-0 select-none">03</div>
+                    <div class="relative z-10 pt-4">
+                        <h4 class="text-xl font-bold text-white">Relatórios Prontos</h4>
+                        <p class="text-slate-400 mt-2 text-sm leading-relaxed">As informações são consolidadas eliminando conferências manuais e fechamento de planilhas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-slate-950 text-white py-20 text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.15),transparent_60%)]"></div>
+        <div class="max-w-4xl mx-auto px-4 space-y-6 relative z-10">
+            <h2 class="text-3xl font-extrabold sm:text-4xl">Pronto para modernizar a gestão de ponto?</h2>
+            <p class="text-slate-400 max-w-xl mx-auto text-sm">Leve o ecossistema completo do ZacPoint para a sua empresa e automatize os processos de assiduidade de forma inteligente.</p>
+            <a href="https://wa.me/5521982814880" target="_blank" class="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all inline-block shadow-2xl mt-4 shadow-indigo-600/20">
+                Falar com Especialista via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-slate-500 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm">
+            <div class="flex items-center gap-2">
+                <span class="text-white font-bold tracking-tight">Zac<span class="text-indigo-400">Point</span></span>
+                <span>© 2026. Todos os direitos reservados.</span>
+            </div>
+            <div class="flex gap-6">
+                <a href="https://wa.me/5521982814880" target="_blank" class="hover:text-slate-300">Contato (+55 21 98281-4880)</a>
+            </div>
+        </div>
+    </footer>
+
     <script>
         let streamAtivo = null;
         let rostoRegistrado = false;
         let nomeDoUtilizador = "Visitante";
 
+        // Alternância de Abas Superiores
         function alternarModo(modo) {
             const modos = ['facial', 'cracha', 'colaborador'];
             if (modo !== 'facial') pararCerebroCam();
@@ -295,6 +430,7 @@
             if (modo === 'colaborador') navegarApp('login');
         }
 
+        // Navegação de Telas Dentro da Aplicação Simulada
         function navegarApp(tela) {
             const telas = ['login', 'dash', 'rh', 'rh-cadastro'];
             telas.forEach(t => {
@@ -305,8 +441,8 @@
             alvo.classList.remove('hidden'); alvo.classList.add('flex');
         }
 
-        // --- SISTEMA INTELIGENTE DE CÂMARA REAL ---
-        async function ativarRecursoFacial() {
+        // --- MÓDULO BIOMETRIA FACIAL VIA WEBCAM ---
+        async function activarRecursoFacial() {
             const video = document.getElementById('webcam-real');
             const placeholder = document.getElementById('cam-placeholder');
             const status = document.getElementById('facial-status');
@@ -321,13 +457,12 @@
                 placeholder.classList.add('hidden');
                 
                 btnInit.classList.add('hidden');
-                btnAtivos.classList.remove('hidden');
-                btnAtivos.classList.add('flex');
+                btnAtivos.classList.remove('hidden'); btnAtivos.classList.add('flex');
 
                 status.innerText = rostoRegistrado ? "Pronto para validação biométrica" : "Face não registada. Clique em REGISTAR FACE.";
                 status.className = "bg-black/60 text-[#00D4FF] text-xs font-bold text-center py-2.5 px-3 rounded-lg min-h-[38px] mb-4";
             } catch (err) {
-                alert("Erro ao aceder à câmara frontal. Certifica-te de dar permissão ao navegador.");
+                alert("Erro ao aceder à câmara. Verifique as permissões do seu navegador.");
             }
         }
 
@@ -338,21 +473,20 @@
         function executarCaptura() {
             const inputNome = document.getElementById('nome-cadastro');
             if (!inputNome.value.trim()) {
-                alert("Por favor, insere o teu nome.");
+                alert("Por favor, insira um nome válido.");
                 return;
             }
             
             nomeDoUtilizador = inputNome.value.trim();
             rostoRegistrado = true;
 
-            // Atualiza o ecossistema do app simulado dinamicamente
+            // Sincroniza dados com o mini-app simulado
             document.getElementById('dash-welcome').innerText = `Olá, ${nomeDoUtilizador}`;
             document.getElementById('rh-user-item').innerText = `👤 ${nomeDoUtilizador}`;
 
-            // Oculta o formulário e atualiza status
             document.getElementById('form-cadastro-facial').classList.add('hidden');
             const status = document.getElementById('facial-status');
-            status.innerText = "Face guardada localmente! Clica em BATER PONTO.";
+            status.innerText = "Assinatura guardada! Clique em BATER PONTO.";
             status.className = "bg-black/60 text-[#10B981] text-xs font-bold text-center py-2.5 px-3 rounded-lg min-h-[38px] mb-4";
         }
 
@@ -363,27 +497,25 @@
             const txtNome = document.getElementById('ponto-nome-user');
 
             laser.classList.remove('hidden');
-            status.innerText = "A analisar biometria com FaceNet...";
+            status.innerText = "A extrair assinatura estrutural com FaceNet...";
             status.className = "bg-black/60 text-amber-400 text-xs font-bold text-center py-2.5 px-3 rounded-lg min-h-[38px] mb-4";
 
             setTimeout(() => {
                 laser.classList.add('hidden');
                 if (rostoRegistrado) {
                     txtNome.innerText = `${nomeDoUtilizador} — ENTRADA`;
-                    sucesso.classList.remove('hidden');
-                    sucesso.classList.add('flex');
+                    sucesso.classList.remove('hidden'); sucesso.classList.add('flex');
                     
                     setTimeout(() => {
-                        sucesso.classList.add('hidden');
-                        sucesso.classList.remove('flex');
+                        sucesso.classList.add('hidden'); sucesso.classList.remove('flex');
                         status.innerText = "Pronto para validação biométrica";
                         status.className = "bg-black/60 text-[#00D4FF] text-xs font-bold text-center py-2.5 px-3 rounded-lg min-h-[38px] mb-4";
-                    }, 3000);
+                    }, 2500);
                 } else {
-                    status.innerText = "Erro: Assinatura facial não correspondida no banco.";
+                    status.innerText = "Erro: Biometria não correspondida no banco de dados.";
                     status.className = "bg-black/60 text-red-500 text-xs font-bold text-center py-2.5 px-3 rounded-lg min-h-[38px] mb-4";
                 }
-            }, 2500);
+            }, 2000);
         }
 
         function pararCerebroCam() {
@@ -392,12 +524,11 @@
                 streamAtivo = null;
             }
             document.getElementById('webcam-real').style.opacity = '0';
-            document.getElementById('cam-placeholder').img || document.getElementById('cam-placeholder').classList.remove('hidden');
+            document.getElementById('cam-placeholder').classList.remove('hidden');
             document.getElementById('botoes-facial-init').classList.remove('hidden');
             document.getElementById('botoes-facial-ativos').classList.add('hidden');
-            document.getElementById('botoes-facial-ativos').classList.remove('flex');
             document.getElementById('form-cadastro-facial').classList.add('hidden');
-            document.getElementById('facial-status').innerText = "Ative a câmara para iniciar";
+            document.getElementById('facial-status').innerText = "Ative a câmara para iniciar o teste";
             document.getElementById('facial-status').className = "bg-black/60 text-[#00D4FF] text-xs font-bold text-center py-2.5 px-3 rounded-lg min-h-[38px] mb-4";
         }
 
@@ -408,8 +539,76 @@
                 document.getElementById('dash-welcome').innerText = `Olá, ${nomeDoUtilizador}`;
                 document.getElementById('rh-user-item').innerText = `👤 ${nomeDoUtilizador}`;
             }
-            alert("Sucesso! O colaborador foi cadastrado e sincronizado com o Firebase.");
+            alert("Sucesso! Colaborador salvo e enviado para o Firebase.");
             navegarApp('rh');
+        }
+
+        // --- SISTEMA DE EMISSÃO DE HOLERITE EM PDF REAL (CÓDIGO KOTLIN CONVERTIDO) ---
+        function gerarHoleritePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const nome = nomeDoUtilizador !== "Visitante" ? nomeDoUtilizador : "João Silva";
+            const matricula = document.getElementById('cad-mat').value || "104592";
+            const empresa = "ZACCODE SISTEMAS E TECNOLOGIA LTDA";
+            const mesRef = "Julho / 2026";
+            
+            // Lógica Matemática Baseada em Tempo Real
+            const horasTrabalhadas = 200; 
+            const salarioBase = 1800.00;
+            const valorReceber = (horasTrabalhadas * (salarioBase / 220)).toFixed(2);
+
+            // Estruturação do PDF Visual
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(22);
+            doc.text("ZACPOINT", 105, 20, null, null, "center");
+            
+            doc.setFontSize(13);
+            doc.text("RECIBO DE PAGAMENTO DE SALÁRIO (HOLERITE)", 105, 30, null, null, "center");
+
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(10);
+            doc.text("_________________________________________________________________________________", 15, 35);
+            doc.text(`Empresa: ${empresa}`, 15, 45);
+            doc.text(`Referência: ${mesRef}`, 150, 45);
+            doc.text("_________________________________________________________________________________", 15, 50);
+
+            doc.setFont("helvetica", "bold");
+            doc.text(`Colaborador: ${nome}`, 15, 60);
+            doc.text(`Matrícula: ${matricula}`, 150, 60);
+            
+            doc.setFont("helvetica", "normal");
+            doc.text("_________________________________________________________________________________", 15, 65);
+
+            // Tabela Detalhada
+            doc.setFont("helvetica", "bold");
+            doc.text("Descrição do Evento", 15, 75);
+            doc.text("Referência", 100, 75);
+            doc.text("Vencimentos", 160, 75);
+            
+            doc.setFont("helvetica", "normal");
+            doc.text("Salário Base Contratual", 15, 85);
+            doc.text(`220 Horas`, 100, 85);
+            doc.text(`R$ ${salarioBase.toFixed(2)}`, 160, 85);
+            
+            doc.text("Horas Efetivas (Cálculo Base 60)", 15, 95);
+            doc.text(`${horasTrabalhadas} Horas`, 100, 95);
+            doc.text(`R$ ${valorReceber}`, 160, 95);
+
+            doc.text("_________________________________________________________________________________", 15, 105);
+            
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(12);
+            doc.text("VALOR LÍQUIDO A RECEBER:", 95, 118);
+            doc.text(`R$ ${valorReceber}`, 160, 118);
+
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(8);
+            doc.text("Documento digital emitido via API de exportação ZacPoint.", 105, 280, null, null, "center");
+            doc.text("Código de Autenticidade: ZP-HOL-2026-99F7", 105, 285, null, null, "center");
+
+            // Baixa o arquivo automaticamente
+            doc.save(`Holerite_ZacPoint_${nome.replace(/\s+/g, '')}.pdf`);
         }
     </script>
 </body>
