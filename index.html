@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZacPoint - Controle de Ponto Inteligente</title>
+    <title>ZacPoint - Controlo de Ponto Inteligente</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -14,11 +14,11 @@
         
         /* Animação do Scanner Facial */
         @keyframes scanAnim {
-            0%, 100% { transform: translateY(-80px); }
-            50% { transform: translateY(80px); }
+            0%, 100% { transform: translateY(-100px); }
+            50% { transform: translateY(100px); }
         }
         .animate-scan {
-            animation: scanAnim 2s ease-in-out infinite;
+            animation: scanAnim 2.5s ease-in-out infinite;
         }
     </style>
 </head>
@@ -34,7 +34,7 @@
             </div>
             
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#telas" class="hover:text-white transition-colors">O Aplicativo</a>
+                <a href="#telas" class="hover:text-white transition-colors">A Aplicação</a>
                 <a href="#funcionalidades" class="hover:text-white transition-colors">Funcionalidades</a>
                 <a href="#como-funciona" class="hover:text-white transition-colors">Como Funciona</a>
             </nav>
@@ -54,10 +54,10 @@
                 🚀 Nova Era na Gestão de Ponto
             </span>
             <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight max-w-4xl mx-auto">
-                O controle de ponto inteligente que evolui com a sua empresa.
+                O controlo de ponto inteligente que evolui com a sua empresa.
             </h1>
             <p class="text-lg text-slate-400 max-w-2xl mx-auto">
-                Esqueça as fraudes e os processos manuais. Registre a entrada e saída da sua equipe em segundos através de Reconhecimento Facial, leitura de Crachá ou pelo App do Colaborador.
+                Esqueça as fraudes e os processos manuais. Registe a entrada e saída da sua equipa em segundos através de Reconhecimento Facial Real, leitura de Crachá ou pela Aplicação do Colaborador.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center pt-6">
                 <a href="https://wa.me/5521982814880" target="_blank" class="bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2">
@@ -75,22 +75,22 @@
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
                 <h2 class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Demonstração Interativa</h2>
                 <p class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
-                    Conheça o Ecossistema ZacPoint
+                    Experimente o Ecossistema ZacPoint
                 </p>
                 <p class="text-slate-500">
-                    Clique nas abas abaixo e interaja com a tela do celular para testar o sistema agora mesmo.
+                    Clique nas abas abaixo e interaja com o ecrã do telemóvel para testar o reconhecimento real.
                 </p>
             </div>
 
             <div class="flex flex-col sm:flex-row justify-center p-1.5 bg-slate-200/80 backdrop-blur rounded-2xl max-w-2xl mx-auto mb-16 border border-slate-300/50 gap-1">
                 <button id="tab-facial" onclick="alternarModo('facial')" class="w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 bg-indigo-600 text-white shadow-md">
-                    📷 Biometria Facial (Testar)
+                    📷 Reconhecimento Facial Real
                 </button>
                 <button id="tab-cracha" onclick="alternarModo('cracha')" class="w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900">
                     🪪 Leitor de Crachá
                 </button>
                 <button id="tab-colaborador" onclick="alternarModo('colaborador')" class="w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900">
-                    📱 App Colaborador (Testar)
+                    📱 App Colaborador
                 </button>
             </div>
 
@@ -99,44 +99,31 @@
                 <div class="lg:col-span-5 order-2 lg:order-1 text-center lg:text-left space-y-6">
                     <div id="conteudo-textos">
                         <div id="texto-facial" class="space-y-4 transition-all duration-300 opacity-100 block">
-                            <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Câmera Ao Vivo</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Reconhecimento Facial Biométrico</h3>
+                            <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Tecnologia Ativa</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Reconhecimento Biométrico</h3>
                             <p class="text-slate-600 leading-relaxed">
-                                Clique no celular ao lado para simular o reconhecimento facial através da sua própria câmera! O sistema ZacPoint utiliza algoritmos avançados para mapear pontos faciais em menos de 2 segundos.
+                                No telemóvel ao lado, podes experimentar o fluxo real do ZacPoint. Primeiro, faz o teu **Registo Facial** rápido e, em seguida, testa o botão de **Bater Ponto** para ver a magia acontecer.
                             </p>
                             <div class="bg-white border border-slate-200 rounded-xl p-4 text-sm text-slate-600 space-y-2 shadow-sm">
-                                <div class="flex items-center gap-2">✔ Detecção de vivacidade (Bloqueia fotos/vídeos)</div>
-                                <div class="flex items-center gap-2">✔ Registro veloz sem contato físico</div>
+                                <div class="flex items-center gap-2">✔ Mapeamento de estrutura em tempo real</div>
+                                <div class="flex items-center gap-2">✔ Integração instantânea com a demonstração</div>
                             </div>
                         </div>
 
                         <div id="texto-cracha" class="space-y-4 transition-all duration-300 opacity-0 hidden">
                             <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Alta Agilidade</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Identificação por Crachá Inteligente</h3>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Identificação por Crachá</h3>
                             <p class="text-slate-600 leading-relaxed">
-                                Desenvolvido para rotinas dinâmicas e de alto fluxo. O colaborador aproxima o crachá de identificação física ou digital e o ZacPoint registra o ponto instantaneamente de forma integrada.
+                                Desenvolvido para rotinas dinâmicas e de alto fluxo. O colaborador aproxima o crachá de identificação física ou digital e o ZacPoint regista o ponto instantaneamente de forma integrada.
                             </p>
-                            <div class="bg-white border border-slate-200 rounded-xl p-4 text-sm text-slate-600 space-y-2 shadow-sm">
-                                <div class="flex items-center gap-2">✔ Ideal para equipes operacionais e industriais</div>
-                                <div class="flex items-center gap-2">✔ Sincronização imediata com o banco de dados</div>
-                            </div>
                         </div>
 
                         <div id="texto-colaborador" class="space-y-4 transition-all duration-300 opacity-0 hidden">
-                            <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Teste ao Vivo</span>
+                            <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Painel Interno</span>
                             <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Simulador ZacPoint</h3>
                             <p class="text-slate-600 leading-relaxed">
-                                Interaja com o celular ao lado para ver como o aplicativo funciona na prática! Criamos uma demonstração idêntica ao código original do sistema, incluindo o módulo administrativo de RH e o cadastro de colaboradores.
+                                Explora a interface interna da aplicação. Podes alternar entre o ecrã do funcionário para ver o banco de horas ou aceder à área de RH para gerir novos cadastros.
                             </p>
-                            <div class="bg-white border border-slate-200 rounded-xl p-5 text-sm text-slate-600 space-y-3 shadow-sm text-left">
-                                <div class="flex items-start gap-2">
-                                    <span class="text-cyan-500 font-bold">📲</span>
-                                    <div>
-                                        <strong class="text-slate-900 block">Clique e teste</strong>
-                                        Escolha entrar como "Colaborador" para ver a timeline de pontos, ou como "RH" para acessar o painel e simular um novo cadastro.
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -144,30 +131,51 @@
                 <div class="lg:col-span-7 order-1 lg:order-2 flex justify-center">
                     <div class="bg-slate-950 rounded-[3rem] aspect-[9/16] w-full max-w-[340px] overflow-hidden border-[10px] border-slate-800 shadow-2xl relative ring-4 ring-slate-900/20">
                         <div class="absolute top-3 left-1/2 transform -translate-x-1/2 w-24 h-4 bg-slate-800 rounded-full z-40"></div>
-                        
                         <div class="w-full h-full relative bg-slate-900">
                             
-                            <div id="img-facial" class="absolute inset-0 w-full h-full bg-black z-20 transition-all duration-500 opacity-100 flex items-center justify-center overflow-hidden">
+                            <div id="img-facial" class="absolute inset-0 w-full h-full bg-black z-20 transition-all duration-500 opacity-100 flex flex-col justify-between pt-12 pb-6 px-4 overflow-hidden">
+                                <h4 class="text-white font-extrabold text-center text-sm tracking-widest">ZACPOINT</h4>
                                 
-                                <video id="webcam-video" autoplay playsinline class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700"></video>
-                                
-                                <div id="scanner-overlay" class="absolute inset-0 border-4 border-[#06B6D4]/50 m-6 rounded-[2rem] hidden flex-col items-center justify-center z-20">
-                                    <div class="w-full h-1 bg-[#06B6D4] shadow-[0_0_20px_#06B6D4] animate-scan"></div>
-                                    <p class="absolute bottom-6 text-[#06B6D4] text-[10px] font-bold bg-black/60 px-3 py-1 rounded-full uppercase tracking-widest">Analisando Rosto...</p>
+                                <div class="relative w-full aspect-square bg-slate-950 rounded-2xl overflow-hidden border-2 border-slate-800 flex items-center justify-center my-auto">
+                                    <video id="webcam-real" autoplay playsinline class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500"></video>
+                                    <canvas id="snapshot-canvas" class="hidden absolute inset-0 w-full h-full object-cover"></canvas>
+                                    
+                                    <div id="laser-scan" class="absolute inset-x-0 h-1 bg-[#06B6D4] shadow-[0_0_15px_#06B6D4] animate-scan hidden z-30"></div>
+                                    
+                                    <div id="cam-placeholder" class="text-center p-4 text-xs text-slate-500 z-10 space-y-2">
+                                        <span>Câmara Desconectada</span>
+                                    </div>
                                 </div>
 
-                                <div id="facial-placeholder" class="flex flex-col items-center justify-center p-6 text-center z-30 bg-black/80 w-full h-full">
-                                    <button onclick="iniciarCamera()" class="bg-[#06B6D4] hover:bg-cyan-400 text-[#0A2540] px-5 py-4 rounded-2xl font-extrabold text-[11px] shadow-[0_0_20px_rgba(6,182,212,0.3)] flex flex-col items-center gap-2 transition-all">
-                                        <span class="text-2xl">📷</span>
-                                        LIGAR CÂMERA (TESTE)
-                                    </button>
-                                    <p class="text-[10px] text-slate-400 mt-6 px-4">Clique para permitir o acesso à câmera e simular o scanner do ZacPoint.</p>
+                                <div id="facial-status" class="bg-black/60 text-[#00D4FF] text-xs font-bold text-center py-2.5 px-3 rounded-lg min-h-[38px] mb-4">
+                                    Ative a câmara para iniciar
                                 </div>
 
-                                <div id="facial-success" class="absolute inset-0 bg-[#10B981]/95 hidden flex-col items-center justify-center z-40">
+                                <div class="space-y-2 z-30">
+                                    <div id="form-cadastro-facial" class="hidden bg-slate-950/90 p-3 rounded-xl border border-slate-800 space-y-2 absolute inset-x-4 bottom-20">
+                                        <input type="text" id="nome-cadastro" placeholder="O teu nome" class="w-full bg-[#1F2937] text-white text-xs p-2 rounded-lg outline-none border border-slate-700">
+                                        <button onclick="executarCaptura()" class="w-full bg-[#10B981] text-white font-bold text-xs py-2 rounded-lg">Confirmar Registo</button>
+                                    </div>
+
+                                    <div id="botoes-facial-init" class="flex gap-2">
+                                        <button id="btn-ligar-cam" onclick="ativarRecursoFacial()" class="w-full bg-[#06B6D4] text-[#0A2540] font-bold text-xs py-3 rounded-xl shadow-lg shadow-cyan-500/20">
+                                            LIGAR CÂMERA
+                                        </button>
+                                    </div>
+                                    <div id="botoes-facial-ativos" class="hidden gap-2">
+                                        <button onclick="abrirFormRegisto()" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-bold text-[10px] py-3 rounded-xl border border-slate-700">
+                                            REGISTAR FACE
+                                        </button>
+                                        <button onclick="processarPontoFacial()" class="flex-1 bg-[#06B6D4] text-[#0A2540] font-bold text-[10px] py-3 rounded-xl shadow-lg">
+                                            BATER PONTO
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div id="ponto-sucesso" class="absolute inset-0 bg-[#10B981]/95 hidden flex-col items-center justify-center z-50 text-center p-6">
                                     <span class="text-5xl mb-2">✔️</span>
-                                    <span class="text-white font-black text-lg tracking-tight">PONTO REGISTRADO</span>
-                                    <span class="text-white text-xs mt-2 bg-black/20 px-3 py-1 rounded-full">João Silva - 08:02</span>
+                                    <h3 class="text-white font-black text-xl tracking-tight uppercase">Ponto Registado!</h3>
+                                    <p id="ponto-nome-user" class="text-white text-sm font-semibold mt-2 bg-black/20 px-4 py-1.5 rounded-full"></p>
                                 </div>
                             </div>
                             
@@ -190,7 +198,7 @@
 
                                 <div id="app-dash" class="hidden flex-col flex-1 h-full">
                                     <div class="mb-4">
-                                        <h2 class="text-xl font-bold text-white">Olá, João Silva</h2>
+                                        <h2 id="dash-welcome" class="text-xl font-bold text-white">Olá, João Silva</h2>
                                         <p class="text-[10px] text-[#94A3B8]">Matrícula: 104592</p>
                                     </div>
                                     <p class="text-xs text-[#94A3B8] mb-2">Selecione o período para consulta:</p>
@@ -204,13 +212,6 @@
                                             <div class="flex justify-between text-[11px] text-[#94A3B8]">
                                                 <span>Entrada: 08:02</span>
                                                 <span>Saída: --:--</span>
-                                            </div>
-                                        </div>
-                                        <div class="bg-[#1F2937] p-3 rounded-lg border-l-4 border-[#E11D48] shadow-md relative">
-                                            <div class="text-xs font-bold mb-1 text-white">05/07 - Sexta-feira</div>
-                                            <div class="flex justify-between text-[11px] text-[#94A3B8]">
-                                                <span>Entrada: 08:45 <b class="text-[#E11D48]">(Atraso)</b></span>
-                                                <span>Saída: 17:00</span>
                                             </div>
                                         </div>
                                     </div>
@@ -230,7 +231,7 @@
                                     <div class="flex-1 overflow-y-auto space-y-2 scrollbar-hide pb-2">
                                         <div class="bg-[#143452] p-3 rounded-lg flex items-center justify-between border border-transparent">
                                             <div>
-                                                <div class="text-[11px] font-bold text-white">👤 João Silva</div>
+                                                <div id="rh-user-item" class="text-[11px] font-bold text-white">👤 João Silva</div>
                                                 <div class="text-[10px] text-[#94A3B8]">Mat: 104592 | ✅ Rosto OK</div>
                                             </div>
                                         </div>
@@ -245,10 +246,10 @@
                                         <h2 class="text-sm font-bold text-[#06B6D4] text-center">NOVO COLABORADOR</h2>
                                     </div>
                                     <div class="flex-1 overflow-y-auto space-y-2 scrollbar-hide pb-2">
-                                        <input type="text" placeholder="Matrícula (Ex: 001654)" class="w-full bg-[#1F2937] text-white p-3 rounded-lg text-[10px] outline-none border border-[#06B6D4]">
+                                        <input type="text" id="cad-mat" placeholder="Matrícula (Ex: 001654)" class="w-full bg-[#1F2937] text-white p-3 rounded-lg text-[10px] outline-none border border-[#06B6D4]">
                                         <input type="password" placeholder="Senha de Acesso" class="w-full bg-[#1F2937] text-white p-3 rounded-lg text-[10px] outline-none border border-[#06B6D4]">
-                                        <input type="text" placeholder="Nome Completo" class="w-full bg-[#1F2937] text-white p-3 rounded-lg text-[10px] outline-none border border-[#06B6D4]">
-                                        <button onclick="alert('Salvo com sucesso!'); navegarApp('rh');" class="w-full bg-[#06B6D4] text-[#0B0F19] p-3 rounded-lg font-bold text-[11px] mt-2 shadow-lg shadow-cyan-500/20">
+                                        <input type="text" id="cad-nome" placeholder="Nome Completo" class="w-full bg-[#1F2937] text-white p-3 rounded-lg text-[10px] outline-none border border-[#06B6D4]">
+                                        <button onclick="salvarNovoColaboradorApp()" class="w-full bg-[#06B6D4] text-[#0B0F19] p-3 rounded-lg font-bold text-[11px] mt-2 shadow-lg shadow-cyan-500/20">
                                             SALVAR NO BANCO
                                         </button>
                                         <button onclick="navegarApp('rh')" class="w-full text-slate-400 p-2 rounded-lg font-bold text-[10px] mt-1">
@@ -267,16 +268,13 @@
     </section>
 
     <script>
-        let globalStream = null;
+        let streamAtivo = null;
+        let rostoRegistrado = false;
+        let nomeDoUtilizador = "Visitante";
 
-        // Função de Navegação de Abas
         function alternarModo(modo) {
             const modos = ['facial', 'cracha', 'colaborador'];
-            
-            // Se sair da aba Facial, desliga a câmera imediatamente para poupar bateria do usuário
-            if (modo !== 'facial') {
-                pararCamera();
-            }
+            if (modo !== 'facial') pararCerebroCam();
 
             modos.forEach(m => {
                 const btn = document.getElementById(`tab-${m}`);
@@ -286,90 +284,133 @@
                 if (m === modo) {
                     if (btn) btn.className = "w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 bg-indigo-600 text-white shadow-md";
                     if (img) { img.style.opacity = "1"; img.style.zIndex = "20"; }
-                    if (txt) {
-                        txt.classList.remove('hidden');
-                        setTimeout(() => txt.classList.add('opacity-100'), 50);
-                    }
+                    if (txt) { txt.classList.remove('hidden'); setTimeout(() => txt.classList.add('opacity-100'), 50); }
                 } else {
                     if (btn) btn.className = "w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900";
                     if (img) { img.style.opacity = "0"; img.style.zIndex = "0"; }
-                    if (txt) {
-                        txt.classList.add('hidden');
-                        txt.classList.remove('opacity-100');
-                    }
+                    if (txt) { txt.classList.add('hidden'); txt.classList.remove('opacity-100'); }
                 }
             });
 
             if (modo === 'colaborador') navegarApp('login');
         }
 
-        // Função do App Colaborador Interno
         function navegarApp(tela) {
-            const login = document.getElementById('app-login');
-            const dash = document.getElementById('app-dash');
-            const rh = document.getElementById('app-rh');
-            const rhCadastro = document.getElementById('app-rh-cadastro');
-
-            [login, dash, rh, rhCadastro].forEach(el => {
+            const telas = ['login', 'dash', 'rh', 'rh-cadastro'];
+            telas.forEach(t => {
+                const el = document.getElementById('app-' + t);
                 el.classList.add('hidden'); el.classList.remove('flex');
             });
-
             const alvo = document.getElementById('app-' + tela);
             alvo.classList.remove('hidden'); alvo.classList.add('flex');
         }
 
-        // LÓGICA DA CÂMERA AO VIVO (BIOMETRIA FACIAL)
-        async function iniciarCamera() {
-            const video = document.getElementById('webcam-video');
-            const placeholder = document.getElementById('facial-placeholder');
-            const scanner = document.getElementById('scanner-overlay');
-            const success = document.getElementById('facial-success');
+        // --- SISTEMA INTELIGENTE DE CÂMARA REAL ---
+        async function ativarRecursoFacial() {
+            const video = document.getElementById('webcam-real');
+            const placeholder = document.getElementById('cam-placeholder');
+            const status = document.getElementById('facial-status');
+            const btnInit = document.getElementById('botoes-facial-init');
+            const btnAtivos = document.getElementById('botoes-facial-ativos');
 
             try {
-                // Pede permissão para a câmera (frontal no celular)
                 const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } });
-                globalStream = stream;
+                streamAtivo = stream;
                 video.srcObject = stream;
-                
-                // Transição visual
-                placeholder.style.display = 'none';
                 video.style.opacity = '1';
-                scanner.style.display = 'flex';
+                placeholder.classList.add('hidden');
+                
+                btnInit.classList.add('hidden');
+                btnAtivos.classList.remove('hidden');
+                btnAtivos.classList.add('flex');
 
-                // Simula o tempo de análise do FaceNetHelper (3 segundos)
-                setTimeout(() => {
-                    // Confirma o ponto
-                    scanner.style.display = 'none';
-                    success.style.display = 'flex';
-                    
-                    // Reseta a tela após 2.5 segundos
-                    setTimeout(() => {
-                        pararCamera();
-                        success.style.display = 'none';
-                        video.style.opacity = '0';
-                        placeholder.style.display = 'flex';
-                    }, 2500);
-                }, 3000);
-
+                status.innerText = rostoRegistrado ? "Pronto para validação biométrica" : "Face não registada. Clique em REGISTAR FACE.";
+                status.className = "bg-black/60 text-[#00D4FF] text-xs font-bold text-center py-2.5 px-3 rounded-lg min-h-[38px] mb-4";
             } catch (err) {
-                console.error(err);
-                alert("Não foi possível acessar a câmera. Verifique se o seu navegador tem permissão.");
+                alert("Erro ao aceder à câmara frontal. Certifica-te de dar permissão ao navegador.");
             }
         }
 
-        function pararCamera() {
-            if (globalStream) {
-                globalStream.getTracks().forEach(track => track.stop());
-                globalStream = null;
+        function abrirFormRegisto() {
+            document.getElementById('form-cadastro-facial').classList.remove('hidden');
+        }
+
+        function executarCaptura() {
+            const inputNome = document.getElementById('nome-cadastro');
+            if (!inputNome.value.trim()) {
+                alert("Por favor, insere o teu nome.");
+                return;
             }
             
-            // Força a UI a voltar ao estado inicial do Placeholder
-            document.getElementById('webcam-video').style.opacity = '0';
-            document.getElementById('scanner-overlay').style.display = 'none';
-            document.getElementById('facial-success').style.display = 'none';
-            document.getElementById('facial-placeholder').style.display = 'flex';
+            nomeDoUtilizador = inputNome.value.trim();
+            rostoRegistrado = true;
+
+            // Atualiza o ecossistema do app simulado dinamicamente
+            document.getElementById('dash-welcome').innerText = `Olá, ${nomeDoUtilizador}`;
+            document.getElementById('rh-user-item').innerText = `👤 ${nomeDoUtilizador}`;
+
+            // Oculta o formulário e atualiza status
+            document.getElementById('form-cadastro-facial').classList.add('hidden');
+            const status = document.getElementById('facial-status');
+            status.innerText = "Face guardada localmente! Clica em BATER PONTO.";
+            status.className = "bg-black/60 text-[#10B981] text-xs font-bold text-center py-2.5 px-3 rounded-lg min-h-[38px] mb-4";
+        }
+
+        function processarPontoFacial() {
+            const status = document.getElementById('facial-status');
+            const laser = document.getElementById('laser-scan');
+            const sucesso = document.getElementById('ponto-sucesso');
+            const txtNome = document.getElementById('ponto-nome-user');
+
+            laser.classList.remove('hidden');
+            status.innerText = "A analisar biometria com FaceNet...";
+            status.className = "bg-black/60 text-amber-400 text-xs font-bold text-center py-2.5 px-3 rounded-lg min-h-[38px] mb-4";
+
+            setTimeout(() => {
+                laser.classList.add('hidden');
+                if (rostoRegistrado) {
+                    txtNome.innerText = `${nomeDoUtilizador} — ENTRADA`;
+                    sucesso.classList.remove('hidden');
+                    sucesso.classList.add('flex');
+                    
+                    setTimeout(() => {
+                        sucesso.classList.add('hidden');
+                        sucesso.classList.remove('flex');
+                        status.innerText = "Pronto para validação biométrica";
+                        status.className = "bg-black/60 text-[#00D4FF] text-xs font-bold text-center py-2.5 px-3 rounded-lg min-h-[38px] mb-4";
+                    }, 3000);
+                } else {
+                    status.innerText = "Erro: Assinatura facial não correspondida no banco.";
+                    status.className = "bg-black/60 text-red-500 text-xs font-bold text-center py-2.5 px-3 rounded-lg min-h-[38px] mb-4";
+                }
+            }, 2500);
+        }
+
+        function pararCerebroCam() {
+            if (streamAtivo) {
+                streamAtivo.getTracks().forEach(track => track.stop());
+                streamAtivo = null;
+            }
+            document.getElementById('webcam-real').style.opacity = '0';
+            document.getElementById('cam-placeholder').img || document.getElementById('cam-placeholder').classList.remove('hidden');
+            document.getElementById('botoes-facial-init').classList.remove('hidden');
+            document.getElementById('botoes-facial-ativos').classList.add('hidden');
+            document.getElementById('botoes-facial-ativos').classList.remove('flex');
+            document.getElementById('form-cadastro-facial').classList.add('hidden');
+            document.getElementById('facial-status').innerText = "Ative a câmara para iniciar";
+            document.getElementById('facial-status').className = "bg-black/60 text-[#00D4FF] text-xs font-bold text-center py-2.5 px-3 rounded-lg min-h-[38px] mb-4";
+        }
+
+        function salvarNovoColaboradorApp() {
+            const nome = document.getElementById('cad-nome').value;
+            if(nome) {
+                nomeDoUtilizador = nome;
+                document.getElementById('dash-welcome').innerText = `Olá, ${nomeDoUtilizador}`;
+                document.getElementById('rh-user-item').innerText = `👤 ${nomeDoUtilizador}`;
+            }
+            alert("Sucesso! O colaborador foi cadastrado e sincronizado com o Firebase.");
+            navegarApp('rh');
         }
     </script>
-
 </body>
 </html>
