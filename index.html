@@ -9,6 +9,9 @@
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         html { scroll-behavior: smooth; }
+        /* Oculta barra de rolagem do app simulado mas permite rolar */
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased">
@@ -64,10 +67,10 @@
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
                 <h2 class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Demonstração Interativa</h2>
                 <p class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
-                    Conheça o Ecossistema ZacPoint por dentro
+                    Conheça o Ecossistema ZacPoint
                 </p>
                 <p class="text-slate-500">
-                    Clique nas abas abaixo para navegar entre os módulos de registro e o app exclusivo do colaborador.
+                    Clique nas abas abaixo e interaja com a tela do celular para testar o sistema agora mesmo.
                 </p>
             </div>
 
@@ -79,7 +82,7 @@
                     🪪 Leitor de Crachá
                 </button>
                 <button id="tab-colaborador" onclick="alternarModo('colaborador')" class="w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900">
-                    📱 App Colaborador
+                    📱 App Colaborador (Testar)
                 </button>
             </div>
 
@@ -112,31 +115,17 @@
                         </div>
 
                         <div id="texto-colaborador" class="space-y-4 transition-all duration-300 opacity-0 hidden">
-                            <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Transparência & Gestão</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">ZacPoint Colaborador</h3>
+                            <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Teste ao Vivo</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Simulador ZacPoint</h3>
                             <p class="text-slate-600 leading-relaxed">
-                                Uma extensão poderosa criada para dar autonomia ao funcionário e controle em tempo real para a gerência. O colaborador tem acesso direto ao seu próprio histórico detalhado de marcações e extrato do Banco de Horas, eliminando surpresas no fim do mês e reduzindo a carga do setor de RH.
+                                Interaja com o celular ao lado para ver como o aplicativo funciona na prática! Criamos uma demonstração idêntica ao código original do sistema.
                             </p>
                             <div class="bg-white border border-slate-200 rounded-xl p-5 text-sm text-slate-600 space-y-3 shadow-sm text-left">
                                 <div class="flex items-start gap-2">
-                                    <span class="text-purple-600 font-bold">📊</span>
+                                    <span class="text-cyan-500 font-bold">📲</span>
                                     <div>
-                                        <strong class="text-slate-900 block">Histórico & Banco de Horas</strong>
-                                        Transparência total para o funcionário auditar e acompanhar suas marcações diárias e saldo acumulado.
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-2 border-t border-slate-100 pt-3">
-                                    <span class="text-red-500 font-bold">🚨</span>
-                                    <div>
-                                        <strong class="text-slate-900 block">Alertas Automáticos de Desvios</strong>
-                                        Caso o colaborador se atrase ou ultrapasse o limite do intervalo de almoço, o sistema dispara uma notificação imediata para o painel do gerente.
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-2 border-t border-slate-100 pt-3">
-                                    <span class="text-blue-500 font-bold">💬</span>
-                                    <div>
-                                        <strong class="text-slate-900 block">Comunicação Direta</strong>
-                                        Facilita o envio de justificativas de atraso ou ocorrências diretamente para a liderança através do aplicativo.
+                                        <strong class="text-slate-900 block">Clique e teste</strong>
+                                        Escolha entrar como "Colaborador" para ver a timeline de pontos, ou como "RH" para ver o painel administrativo.
                                     </div>
                                 </div>
                             </div>
@@ -149,19 +138,97 @@
                         <div class="absolute top-3 left-1/2 transform -translate-x-1/2 w-24 h-4 bg-slate-800 rounded-full z-30"></div>
                         <div class="w-full h-full relative bg-slate-900">
                             
-                            <img id="img-facial" src="tela-facial.jpg" alt="Tela de Reconhecimento Facial" 
-                                 class="absolute inset-0 w-full h-full object-contain bg-black transition-all duration-500 opacity-100 z-10 p-2"
-                                 onerror="this.outerHTML='<div id=\'img-facial\' class=\'absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-xs text-slate-500 bg-slate-900 z-10\'><svg class=\'w-10 h-10 mb-2 text-slate-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z\'></path></svg><span>Falta subir a foto:<br><b class=\'text-indigo-400\'>tela-facial.jpg</b></span></div>'">
-
-                            <img id="img-cracha" src="tela-cracha.jpg" alt="Tela do Leitor de Crachá" 
-                                 class="absolute inset-0 w-full h-full object-contain bg-black transition-all duration-500 opacity-0 z-0 p-2"
-                                 onerror="this.outerHTML='<div id=\'img-cracha\' class=\'absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-xs text-slate-500 bg-slate-900 z-0 opacity-0\'><svg class=\'w-10 h-10 mb-2 text-slate-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z\'></path></svg><span>Falta subir a foto:<br><b class=\'text-emerald-400\'>tela-cracha.jpg</b></span></div>'">
+                            <img id="img-facial" src="tela-facial.jpg" alt="Tela Facial" class="absolute inset-0 w-full h-full object-contain bg-black transition-all duration-500 opacity-100 z-10 p-2" onerror="this.outerHTML='<div id=\'img-facial\' class=\'absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-xs text-slate-500 bg-slate-900 z-10\'><svg class=\'w-10 h-10 mb-2 text-slate-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z\'></path></svg><span>Falta subir a foto:<br><b class=\'text-indigo-400\'>tela-facial.jpg</b></span></div>'">
+                            <img id="img-cracha" src="tela-cracha.jpg" alt="Tela Crachá" class="absolute inset-0 w-full h-full object-contain bg-black transition-all duration-500 opacity-0 z-0 p-2" onerror="this.outerHTML='<div id=\'img-cracha\' class=\'absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-xs text-slate-500 bg-slate-900 z-0 opacity-0\'><svg class=\'w-10 h-10 mb-2 text-slate-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z\'></path></svg><span>Falta subir a foto:<br><b class=\'text-emerald-400\'>tela-cracha.jpg</b></span></div>'">
                         
-                            <img id="img-colaborador" src="tela-colaborador.jpg" alt="Tela do Aplicativo do Colaborador" 
-                                 class="absolute inset-0 w-full h-full object-contain bg-black transition-all duration-500 opacity-0 z-0 p-2"
-                                 onerror="this.outerHTML='<div id=\'img-colaborador\' class=\'absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-xs text-slate-500 bg-slate-900 z-0 opacity-0\'><svg class=\'w-10 h-10 mb-2 text-slate-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z\'></path></svg><span>Falta subir a foto:<br><b class=\'text-purple-400\'>tela-colaborador.jpg</b></span></div>'">
+                            <div id="img-colaborador" class="absolute inset-0 w-full h-full transition-all duration-500 opacity-0 z-0 bg-[#111827] text-[#E2E8F0] font-sans flex flex-col pt-10 pb-4 px-4 overflow-hidden shadow-inner">
+                                
+                                <div id="app-login" class="flex flex-col flex-1 justify-center items-center">
+                                    <h1 class="text-3xl font-extrabold mb-8 tracking-tight">Zac<span class="text-[#06B6D4]">Point</span></h1>
+                                    <input type="text" placeholder="Digite sua matrícula" class="w-full bg-[#1F2937] text-white p-3.5 rounded-lg mb-4 text-sm outline-none border border-slate-700/50" readonly>
+                                    <input type="password" placeholder="Digite sua senha" class="w-full bg-[#1F2937] text-white p-3.5 rounded-lg mb-8 text-sm outline-none border border-slate-700/50" readonly>
+                                    
+                                    <button onclick="navegarApp('dash')" class="w-full bg-[#06B6D4] hover:bg-cyan-400 transition-colors text-[#111827] p-3.5 rounded-lg font-bold text-xs mb-3 shadow-lg shadow-cyan-500/20">
+                                        ENTRAR COMO COLABORADOR
+                                    </button>
+                                    <button onclick="navegarApp('rh')" class="w-full border border-[#06B6D4] hover:bg-[#06B6D4]/10 transition-colors text-[#06B6D4] p-3.5 rounded-lg font-bold text-xs">
+                                        ENTRAR COMO RH
+                                    </button>
+                                </div>
 
-                        </div>
+                                <div id="app-dash" class="hidden flex-col flex-1 h-full">
+                                    <div class="mb-4">
+                                        <h2 class="text-xl font-bold text-white">Olá, João Silva</h2>
+                                        <p class="text-[10px] text-[#94A3B8]">Matrícula: 104592</p>
+                                    </div>
+                                    <p class="text-xs text-[#94A3B8] mb-2">Selecione o período para consulta:</p>
+                                    <div class="flex gap-2 mb-4">
+                                        <div class="bg-[#1F2937] p-2.5 rounded-lg flex-1 text-xs text-center border border-slate-700 font-medium">Julho</div>
+                                        <div class="bg-[#1F2937] p-2.5 rounded-lg flex-1 text-xs text-center border border-slate-700 font-medium">2026</div>
+                                    </div>
+                                    <div class="flex-1 overflow-y-auto space-y-3 pb-4 scrollbar-hide">
+                                        <div class="bg-[#1F2937] p-3 rounded-lg border-l-4 border-[#10B981] shadow-md">
+                                            <div class="text-xs font-bold mb-1 text-white">Hoje - Terça-feira</div>
+                                            <div class="flex justify-between text-[11px] text-[#94A3B8]">
+                                                <span>Entrada: 08:02</span>
+                                                <span>Saída: --:--</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-[#1F2937] p-3 rounded-lg border-l-4 border-[#10B981] shadow-md">
+                                            <div class="text-xs font-bold mb-1 text-white">06/07 - Segunda-feira</div>
+                                            <div class="flex justify-between text-[11px] text-[#94A3B8]">
+                                                <span>Entrada: 07:58</span>
+                                                <span>Saída: 17:05</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-[#1F2937] p-3 rounded-lg border-l-4 border-[#E11D48] shadow-md relative">
+                                            <div class="text-xs font-bold mb-1 text-white">05/07 - Sexta-feira</div>
+                                            <div class="flex justify-between text-[11px] text-[#94A3B8]">
+                                                <span>Entrada: 08:45 <b class="text-[#E11D48]">(Atraso)</b></span>
+                                                <span>Saída: 17:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex gap-2 pt-3 border-t border-slate-800 mt-auto">
+                                        <button onclick="navegarApp('login')" class="flex-1 bg-slate-800 hover:bg-slate-700 p-3 rounded-lg text-[10px] font-bold text-white transition-colors">SAIR</button>
+                                        <button class="flex-[1.4] bg-[#06B6D4] p-3 rounded-lg text-[10px] font-bold text-[#111827] shadow-lg">EMITIR HOLERITE</button>
+                                    </div>
+                                </div>
+
+                                <div id="app-rh" class="hidden flex-col flex-1 h-full">
+                                    <div class="mb-4 bg-[#1F2937] -mx-4 -mt-10 pt-12 pb-4 px-4 border-b border-slate-700">
+                                        <h2 class="text-sm font-bold text-[#06B6D4]">PAINEL ADMINISTRATIVO RH</h2>
+                                        <p class="text-[10px] text-[#94A3B8] mt-1">Selecione um funcionário abaixo</p>
+                                    </div>
+                                    <div class="flex-1 overflow-y-auto space-y-2 scrollbar-hide pb-2">
+                                        <div onclick="alert('No app real, isso abre o histórico do João!')" class="bg-[#1F2937] p-3 rounded-lg flex items-center justify-between cursor-pointer border border-transparent hover:border-[#06B6D4]/50 transition-colors">
+                                            <div>
+                                                <div class="text-xs font-bold text-white">João Silva</div>
+                                                <div class="text-[10px] text-[#94A3B8]">Mat: 104592</div>
+                                            </div>
+                                            <div class="text-xs">➔</div>
+                                        </div>
+                                        <div class="bg-[#1F2937] p-3 rounded-lg flex items-center justify-between cursor-pointer border border-transparent hover:border-[#06B6D4]/50 transition-colors">
+                                            <div>
+                                                <div class="text-xs font-bold text-white">Maria Oliveira</div>
+                                                <div class="text-[10px] text-[#94A3B8]">Mat: 104593</div>
+                                            </div>
+                                            <div class="text-xs">➔</div>
+                                        </div>
+                                        <div class="bg-[#1F2937] p-3 rounded-lg flex items-center justify-between cursor-pointer border border-transparent hover:border-[#06B6D4]/50 transition-colors">
+                                            <div>
+                                                <div class="text-xs font-bold text-white">Carlos Mendes</div>
+                                                <div class="text-[10px] text-[#94A3B8]">Mat: 104594</div>
+                                            </div>
+                                            <div class="text-xs">➔</div>
+                                        </div>
+                                    </div>
+                                    <button onclick="navegarApp('login')" class="w-full border border-slate-600 text-slate-300 p-3 rounded-lg font-bold text-[10px] mt-4">
+                                        ← VOLTAR PARA LOGIN
+                                    </button>
+                                </div>
+                            </div>
+                            </div>
                     </div>
                 </div>
 
@@ -180,23 +247,23 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-lg transition-all space-y-3">
                     <div class="text-3xl">🚨</div>
-                    <h4 class="text-xl font-bold text-slate-900">Alertas em Tempo Real para Gerentes</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">Chega de descobrir desvios de horários apenas no fechamento do mês. O sistema notifica a liderança imediatamente se um colaborador se atrasar ou estourar o tempo estabelecido de almoço.</p>
+                    <h4 class="text-xl font-bold text-slate-900">Alertas em Tempo Real</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Chega de descobrir desvios de horários apenas no fechamento do mês. O sistema notifica a liderança imediatamente se um colaborador se atrasar.</p>
                 </div>
                 <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-lg transition-all space-y-3">
                     <div class="text-3xl">📊</div>
-                    <h4 class="text-xl font-bold text-slate-900">Banco de Horas Automatizado</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">Cálculos automáticos e integrados de horas extras, saldos positivos ou negativos. O banco de dados consolida as informações em tempo real de forma blindada.</p>
+                    <h4 class="text-xl font-bold text-slate-900">Banco de Horas e Holerite</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Cálculos automáticos de horas trabalhadas. O colaborador pode emitir o espelho de ponto/holerite direto do próprio celular em formato PDF.</p>
                 </div>
                 <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-lg transition-all space-y-3">
                     <div class="text-3xl">🛡️</div>
                     <h4 class="text-xl font-bold text-slate-900">Segurança & Auditoria Jurídica</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">Registros totalmente encriptados e em total conformidade com as exigências administrativas vigentes. Uma proteção robusta contra fraudes ou falhas de conferência.</p>
+                    <p class="text-slate-600 text-sm leading-relaxed">Registros totalmente encriptados e em total conformidade com as exigências administrativas vigentes contra fraudes.</p>
                 </div>
                 <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-lg transition-all space-y-3">
                     <div class="text-3xl">💬</div>
-                    <h4 class="text-xl font-bold text-slate-900">Justificativas & Mensagens Rápidas</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">O funcionário pode enviar atestados ou justificativas de atraso diretamente pelo aplicativo, abrindo um canal limpo e centralizado com o administrador.</p>
+                    <h4 class="text-xl font-bold text-slate-900">Painel Exclusivo RH</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Acesso gerencial detalhado onde o administrador pode auditar pontos, inserir justificativas e aprovar horas da equipe rapidamente.</p>
                 </div>
             </div>
         </div>
@@ -210,33 +277,26 @@
                 <p class="text-3xl sm:text-4xl font-bold tracking-tight">Como o ecossistema opera?</p>
                 <p class="text-slate-400">Três passos simples que conectam o funcionário diretamente ao painel administrativo.</p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative max-w-5xl mx-auto">
                 <div class="space-y-4 relative">
                     <div class="text-6xl font-extrabold text-slate-800 absolute -top-10 left-0 z-0 select-none">01</div>
                     <div class="relative z-10 pt-4">
                         <h4 class="text-xl font-bold text-white">Marcação de Presença</h4>
-                        <p class="text-slate-400 mt-2 text-sm leading-relaxed">
-                            O colaborador faz o registro biométrico facial na empresa ou acompanha o banco de horas e notificações no seu aplicativo próprio.
-                        </p>
+                        <p class="text-slate-400 mt-2 text-sm leading-relaxed">O colaborador faz o registro biométrico na empresa ou consulta dados pelo seu app próprio.</p>
                     </div>
                 </div>
                 <div class="space-y-4 relative">
                     <div class="text-6xl font-extrabold text-slate-800 absolute -top-10 left-0 z-0 select-none">02</div>
                     <div class="relative z-10 pt-4">
-                        <h4 class="text-xl font-bold text-white">Análise e Notificação</h4>
-                        <p class="text-slate-400 mt-2 text-sm leading-relaxed">
-                            O sistema processa os dados em nuvem. Se houver desvio de horário (atrasos/almoço), o gerente recebe um alerta em tempo real.
-                        </p>
+                        <h4 class="text-xl font-bold text-white">Sincronização em Nuvem</h4>
+                        <p class="text-slate-400 mt-2 text-sm leading-relaxed">O sistema processa os dados online. O painel do RH é alimentado instantaneamente.</p>
                     </div>
                 </div>
                 <div class="space-y-4 relative">
                     <div class="text-6xl font-extrabold text-slate-800 absolute -top-10 left-0 z-0 select-none">03</div>
                     <div class="relative z-10 pt-4">
                         <h4 class="text-xl font-bold text-white">Relatórios Prontos</h4>
-                        <p class="text-slate-400 mt-2 text-sm leading-relaxed">
-                            As informações são enviadas consolidadas ao painel de controle administrativo, eliminando qualquer tipo de conferência manual complexa.
-                        </p>
+                        <p class="text-slate-400 mt-2 text-sm leading-relaxed">As informações são consolidadas eliminando conferências manuais e fechamento de planilhas.</p>
                     </div>
                 </div>
             </div>
@@ -267,6 +327,7 @@
     </footer>
 
     <script>
+        // Função original para alternar as Abas
         function alternarModo(modo) {
             const modos = ['facial', 'cracha', 'colaborador'];
             
@@ -291,6 +352,29 @@
                     }
                 }
             });
+            // Sempre que entrar na aba do Colaborador, reseta o app para a tela de Login
+            if (modo === 'colaborador') navegarApp('login');
+        }
+
+        // Nova Função para navegar DENTRO do App Simulado
+        function navegarApp(tela) {
+            const login = document.getElementById('app-login');
+            const dash = document.getElementById('app-dash');
+            const rh = document.getElementById('app-rh');
+
+            // Esconde todas
+            login.classList.add('hidden'); login.classList.remove('flex');
+            dash.classList.add('hidden'); dash.classList.remove('flex');
+            rh.classList.add('hidden'); rh.classList.remove('flex');
+
+            // Mostra a selecionada
+            if(tela === 'login') {
+                login.classList.remove('hidden'); login.classList.add('flex');
+            } else if (tela === 'dash') {
+                dash.classList.remove('hidden'); dash.classList.add('flex');
+            } else if (tela === 'rh') {
+                rh.classList.remove('hidden'); rh.classList.add('flex');
+            }
         }
     </script>
 
