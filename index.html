@@ -553,71 +553,85 @@
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
-            const nome = "Fundador"; // Exemplo
-            const matricula = "1612";
-            const mesRef = "01/2026";
+            // Configurações de estilo
+            const headerColor = [11, 24, 39]; // Cor do cabeçalho escuro (#0B1827)
             
-            // Dados da Empresa
+            // 1. CABEÇALHO ESCURO
+            doc.setFillColor(headerColor[0], headerColor[1], headerColor[2]);
+            doc.rect(10, 10, 190, 30, 'F');
+            
+            doc.setTextColor(255, 255, 255);
             doc.setFont("helvetica", "bold");
             doc.setFontSize(14);
-            doc.text("ZACCODE SISTEMAS E TECNOLOGIA LTDA", 105, 15, null, null, "center");
-            doc.setFontSize(10);
-            doc.text("CNPJ: 00.000.000/0001-00", 105, 20, null, null, "center");
-            doc.text("Demonstrativo de Pagamento Mensal Pro-Rata", 105, 25, null, null, "center");
+            doc.text("ZACCODE SISTEMAS E TECNOLOGIA LTDA", 15, 20);
             
-            // Info do Colaborador
-            doc.line(15, 30, 195, 30);
-            doc.text(`Referência: ${mesRef}`, 15, 35);
-            doc.text(`Colaborador: ${nome}`, 15, 40);
-            doc.text(`Matrícula: ${matricula}`, 150, 40);
-            doc.line(15, 45, 195, 45);
-
-            // Cabeçalho da Tabela
-            doc.setFont("helvetica", "bold");
-            doc.text("CÓD", 15, 52);
-            doc.text("DESCRIÇÃO", 35, 52);
-            doc.text("REF", 110, 52);
-            doc.text("VENC (R$)", 140, 52);
-            doc.text("DESC (R$)", 175, 52);
-            doc.line(15, 55, 195, 55);
-
-            // Linhas da Tabela
             doc.setFont("helvetica", "normal");
-            doc.text("001", 15, 62);
-            doc.text("Salário Normal Proporcional (CLT)", 35, 62);
-            doc.text("31 dias", 110, 62);
-            doc.text("1.860,00", 140, 62);
+            doc.setFontSize(9);
+            doc.text("CNPJ: 00.000.000/0001-00", 15, 27);
             
-            doc.text("112", 15, 70);
-            doc.text("Desconto de Faltas Não Justificadas", 35, 70);
-            doc.text("27 dia(s)", 110, 70);
-            doc.text("1.620,00", 175, 70);
+            doc.text("Demonstrativo de Pagamento Mensal Pro-Rata", 130, 20);
+            doc.text("Referência: 01/2026", 160, 27);
 
-            doc.text("687", 15, 78);
-            doc.text("Desconto Vale Transporte", 35, 78);
-            doc.text("6%", 110, 78);
-            doc.text("111,60", 175, 78);
-
-            doc.text("903", 15, 86);
-            doc.text("Retenção INSS Folha", 35, 86);
-            doc.text("7.5%", 110, 86);
-            doc.text("18,00", 175, 86);
-
-            // Totais
-            doc.line(15, 95, 195, 95);
+            // 2. DADOS DO COLABORADOR
+            doc.setTextColor(0, 0, 0);
             doc.setFont("helvetica", "bold");
-            doc.text("TOTAL VENCIMENTOS:", 100, 105);
-            doc.text("R$ 1.860,00", 140, 105);
+            doc.setFontSize(10);
+            doc.text("COLABORADOR:", 15, 50);
+            doc.text("MATRÍCULA:", 130, 50);
             
-            doc.text("TOTAL DESCONTOS:", 100, 112);
-            doc.text("R$ 1.749,60", 175, 112);
-            
-            doc.line(15, 118, 195, 118);
-            doc.setFontSize(14);
-            doc.text("VALOR LÍQUIDO A RECEBER: R$ 110,40", 105, 130, null, null, "center");
+            doc.setFont("helvetica", "normal");
+            doc.text("Fundador", 15, 56);
+            doc.text("1612", 130, 56);
+            doc.line(10, 60, 200, 60);
 
-            doc.save(`Demonstrativo_${nome}.pdf`);
-        }
+            // 3. CABEÇALHO DA TABELA
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(9);
+            doc.text("CÓD", 15, 68);
+            doc.text("DESCRIÇÃO DOS LANÇAMENTOS", 35, 68);
+            doc.text("REFERÊNCIA", 110, 68);
+            doc.text("VENCIMENTOS (R$)", 140, 68);
+            doc.text("DESCONTOS (R$)", 170, 68);
+            doc.line(10, 72, 200, 72);
+
+            // 4. LINHAS DA TABELA (Dados do seu print)
+            doc.setFont("helvetica", "normal");
+            const y = [80, 90, 100, 110];
+            
+            doc.text("001", 15, y[0]);
+            doc.text("Salário Normal Proporcional (CLT)", 35, y[0]);
+            doc.text("31 dias", 110, y[0]);
+            doc.text("1.860,00", 150, y[0], {align: 'right'});
+
+            doc.text("112", 15, y[1]);
+            doc.text("Desconto de Faltas Não Justificadas", 35, y[1]);
+            doc.text("27 dia(s)", 110, y[1]);
+            doc.text("1.620,00", 185, y[1], {align: 'right'});
+
+            doc.text("687", 15, y[2]);
+            doc.text("Desconto Vale Transporte", 35, y[2]);
+            doc.text("6%", 110, y[2]);
+            doc.text("111,60", 185, y[2], {align: 'right'});
+
+            doc.text("903", 15, y[3]);
+            doc.text("Retenção INSS Folha", 35, y[3]);
+            doc.text("7.5%", 110, y[3]);
+            doc.text("18,00", 185, y[3], {align: 'right'});
+
+            // 5. TOTAIS
+            doc.line(10, 120, 200, 120);
+            doc.setFont("helvetica", "bold");
+            doc.text("Total Vencimentos: R$ 1.860,00", 15, 130);
+            doc.text("Total Descontos: R$ 1.749,60", 15, 137);
+
+            // 6. VALOR LÍQUIDO (Destaque)
+            doc.rect(140, 125, 60, 15, 'S'); // Borda no valor líquido
+            doc.text("VALOR LÍQUIDO A RECEBER", 170, 130, {align: 'center'});
+            doc.setTextColor(0, 100, 200); // Cor azul para o valor
+            doc.setFontSize(16);
+            doc.text("R$ 110,40", 170, 138, {align: 'center'});
+
+            doc.save("Demonstrativo_Pagamento_ZacPoint.pdf");
         }
     </script>
 </body>
