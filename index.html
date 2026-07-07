@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZacPoint - Controle de Ponto Inteligente</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- jsPDF (Gerador de PDF Real) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -28,7 +25,6 @@
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased">
 
-    <!-- NAV BAR -->
     <header class="fixed top-0 left-0 right-0 bg-slate-900/90 backdrop-blur-md z-50 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -52,7 +48,6 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 text-white pt-32 pb-20 overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(79,70,229,0.15),transparent_45%)]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
@@ -76,7 +71,6 @@
         </div>
     </section>
 
-    <!-- SEÇÃO INTERATIVA: DEMONSTRAÇÃO DO ECOSSISTEMA -->
     <section id="telas" class="py-24 bg-slate-50 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
@@ -89,7 +83,6 @@
                 </p>
             </div>
 
-            <!-- SELETOR DE ABAS -->
             <div class="flex flex-col sm:flex-row justify-center p-1.5 bg-slate-200/80 backdrop-blur rounded-2xl max-w-2xl mx-auto mb-16 border border-slate-300/50 gap-1">
                 <button id="tab-facial" onclick="alternarModo('facial')" class="w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 bg-indigo-600 text-white shadow-md">
                     📷 Biometria Facial Ao Vivo
@@ -102,13 +95,10 @@
                 </button>
             </div>
 
-            <!-- GRID CENTRALIZADO -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-5xl mx-auto">
                 
-                <!-- LADO ESQUERDO: TEXTOS EXPLICATIVOS DINÂMICOS -->
                 <div class="lg:col-span-5 order-2 lg:order-1 text-center lg:text-left space-y-6">
                     <div id="conteudo-textos">
-                        <!-- Conteúdo 1: Facial -->
                         <div id="texto-facial" class="space-y-4 transition-all duration-300 opacity-100 block">
                             <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Câmera Integrada</span>
                             <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Reconhecimento Facial Biométrico</h3>
@@ -121,7 +111,6 @@
                             </div>
                         </div>
 
-                        <!-- Conteúdo 2: Crachá -->
                         <div id="texto-cracha" class="space-y-4 transition-all duration-300 opacity-0 hidden">
                             <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Alta Agilidade</span>
                             <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Identificação por Crachá Inteligente</h3>
@@ -134,38 +123,31 @@
                             </div>
                         </div>
 
-                        <!-- Conteúdo 3: App Colaborador -->
                         <div id="texto-colaborador" class="space-y-4 transition-all duration-300 opacity-0 hidden">
                             <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Lógica Avançada</span>
                             <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Aplicativo ZacPoint Colaborador</h3>
                             <p class="text-slate-600 leading-relaxed">
-                                Navegue pelas telas do aplicativo mobile. Faça login simulado para auditar o extrato do Banco de Horas ou acesse o módulo de RH para preencher a ficha cadastral completa com dados de salário e empresa.
+                                Navegue pelas telas do aplicativo mobile. Faça login simulado para auditar o extrato do Banco de Horas ou acesse o módulo de RH para testar a interface de gestão.
                             </p>
                             <div class="bg-white border border-slate-200 rounded-xl p-4 text-sm text-slate-600 space-y-2 shadow-sm">
                                 <div class="flex items-center gap-2">✔ Botão funcional de emissão de Holerite em PDF</div>
-                                <div class="flex items-center gap-2">✔ Alertas automatizados de atrasos enviados à gestão</div>
+                                <div class="flex items-center gap-2">✔ Formulário avançado para o painel administrativo</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- LADO DIREITO: MOCKUP DE CELULAR EXPANDIDO -->
                 <div class="lg:col-span-7 order-1 lg:order-2 flex justify-center">
                     <div class="bg-slate-950 rounded-[3rem] aspect-[9/16] w-full max-w-[340px] overflow-hidden border-[10px] border-slate-800 shadow-2xl relative ring-4 ring-slate-900/20">
                         <div class="absolute top-3 left-1/2 transform -translate-x-1/2 w-24 h-4 bg-slate-800 rounded-full z-40"></div>
                         <div class="w-full h-full relative bg-slate-900">
                             
-                            <!-- INTERFACE 1: BIO FACIAL COM CÂMERA AO VIVO -->
                             <div id="img-facial" class="absolute inset-0 w-full h-full bg-black z-20 transition-all duration-500 opacity-100 flex flex-col justify-between pt-12 pb-6 px-4 overflow-hidden">
                                 <h4 class="text-white font-extrabold text-center text-sm tracking-widest">ZACPOINT</h4>
                                 
                                 <div class="relative w-full aspect-square bg-slate-950 rounded-2xl overflow-hidden border-2 border-slate-800 flex items-center justify-center my-auto">
-                                    <!-- Elemento HTML5 de Vídeo da Câmera -->
                                     <video id="webcam-real" autoplay playsinline class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500"></video>
-                                    
-                                    <!-- Linha de Varredura Laser -->
                                     <div id="laser-scan" class="absolute inset-x-0 h-1 bg-[#06B6D4] shadow-[0_0_15px_#06B6D4] animate-scan hidden z-30"></div>
-                                    
                                     <div id="cam-placeholder" class="text-center p-4 text-xs text-slate-500 z-10 flex flex-col items-center gap-2">
                                         <span>Câmera Desconectada</span>
                                     </div>
@@ -176,7 +158,6 @@
                                 </div>
 
                                 <div class="space-y-2 z-30">
-                                    <!-- Formulário Flutuante de Registro Facial -->
                                     <div id="form-cadastro-facial" class="hidden bg-slate-950/95 p-3 rounded-xl border border-slate-800 space-y-2 absolute inset-x-4 bottom-20">
                                         <input type="text" id="nome-cadastro" placeholder="Insira o seu nome completo" class="w-full bg-[#1F2937] text-white text-xs p-2.5 rounded-lg outline-none border border-slate-700">
                                         <button onclick="executarCaptura()" class="w-full bg-[#10B981] text-white font-bold text-xs py-2 rounded-lg">Salvar Assinatura</button>
@@ -197,7 +178,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Tela de Sucesso -->
                                 <div id="ponto-sucesso" class="absolute inset-0 bg-[#10B981]/95 hidden flex-col items-center justify-center z-50 text-center p-6">
                                     <span class="text-5xl mb-2">✔️</span>
                                     <h3 class="text-white font-black text-xl tracking-tight uppercase">Ponto Registrado!</h3>
@@ -205,123 +185,124 @@
                                 </div>
                             </div>
                             
-                            <!-- INTERFACE 2: CRACHÁ -->
                             <img id="img-cracha" src="tela-cracha.jpg" alt="Tela Crachá" class="absolute inset-0 w-full h-full object-contain bg-black transition-all duration-500 opacity-0 z-0 p-2" onerror="this.outerHTML='<div id=\'img-cracha\' class=\'absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-xs text-slate-500 bg-slate-900 z-0 opacity-0\'><svg class=\'w-10 h-10 mb-2 text-slate-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z\'></path></svg><span>Falta subir o print:<br><b class=\'text-emerald-400\'>tela-cracha.jpg</b></span></div>'">
                         
-                            <!-- INTERFACE 3: APLICATIVO COMPLETO SIMULADO -->
-                            <div id="img-colaborador" class="absolute inset-0 w-full h-full transition-all duration-500 opacity-0 z-0 bg-[#111827] text-[#E2E8F0] font-sans flex flex-col pt-10 pb-4 px-4 overflow-hidden shadow-inner">
+                            <div id="img-colaborador" class="absolute inset-0 w-full h-full transition-all duration-500 opacity-0 z-0 bg-[#0B0F19] text-[#F8FAFC] font-sans flex flex-col pt-8 overflow-hidden shadow-inner">
                                 
-                                <!-- TELA DE LOGIN -->
-                                <div id="app-login" class="flex flex-col flex-1 justify-center items-center">
-                                    <h1 class="text-3xl font-extrabold mb-8 tracking-tight">Zac<span class="text-[#06B6D4]">Point</span></h1>
-                                    <input type="text" placeholder="Digite sua matrícula" class="w-full bg-[#1F2937] text-white p-3.5 rounded-lg mb-4 text-sm outline-none border border-slate-700/50" readonly>
-                                    <input type="password" placeholder="Digite sua senha" class="w-full bg-[#1F2937] text-white p-3.5 rounded-lg mb-8 text-sm outline-none border border-slate-700/50" readonly>
+                                <div id="app-login" class="flex flex-col flex-1 justify-center items-center px-6">
+                                    <h1 class="text-4xl font-extrabold text-[#06B6D4] tracking-widest mb-1">ZacPoint</h1>
+                                    <h2 class="text-[10px] font-bold text-[#38BDF8] tracking-widest mb-10">PORTAL DO COLABORADOR</h2>
                                     
-                                    <button onclick="navegarApp('dash')" class="w-full bg-[#06B6D4] hover:bg-cyan-400 transition-colors text-[#111827] p-3.5 rounded-lg font-bold text-[11px] mb-3 shadow-lg shadow-cyan-500/20">
-                                        ENTRAR COMO COLABORADOR
-                                    </button>
-                                    <button onclick="navegarApp('rh')" class="w-full border border-[#06B6D4] hover:bg-[#06B6D4]/10 transition-colors text-[#06B6D4] p-3.5 rounded-lg font-bold text-[11px]">
-                                        ENTRAR COMO RH
-                                    </button>
+                                    <div class="w-full bg-[#1E293B] p-6 rounded-xl shadow-lg flex flex-col shadow-black/50">
+                                        <label class="text-[#94A3B8] text-[9px] font-bold tracking-widest mb-1.5">MATRÍCULA</label>
+                                        <input type="text" placeholder="Digite sua matrícula" class="w-full bg-[#06B6D4] text-[#F8FAFC] placeholder-[#475569] px-3 py-2.5 rounded mb-4 text-xs outline-none">
+                                        
+                                        <label class="text-[#94A3B8] text-[9px] font-bold tracking-widest mb-1.5">SENHA DE ACESSO</label>
+                                        <input type="password" placeholder="••••••••" class="w-full bg-[#06B6D4] text-[#F8FAFC] placeholder-[#475569] px-3 py-2.5 rounded mb-6 text-xs outline-none">
+                                        
+                                        <button onclick="navegarApp('dash')" class="w-full bg-[#06B6D4] hover:bg-cyan-400 transition-colors text-[#0B0F19] p-3 rounded font-bold text-[11px] mb-3 shadow-md shadow-cyan-500/20">
+                                            CONECTAR AO PAINEL
+                                        </button>
+                                        <button onclick="navegarApp('rh')" class="w-full text-[#38BDF8] hover:text-[#06B6D4] transition-colors p-2 rounded font-bold text-[10px]">
+                                            ACESSAR PAINEL RH
+                                        </button>
+                                    </div>
                                 </div>
 
-                                <!-- TELA DASHBOARD (FUNCIONÁRIO) -->
-                                <div id="app-dash" class="hidden flex-col flex-1 h-full">
-                                    <div class="mb-4">
-                                        <h2 id="dash-welcome" class="text-xl font-bold text-white">Olá, João Silva</h2>
-                                        <p class="text-[10px] text-[#94A3B8]">Matrícula: 104592</p>
+                                <div id="app-dash" class="hidden flex-col flex-1 h-full px-5 py-2">
+                                    <div class="flex items-center justify-between bg-[#1E293B] p-4 rounded-xl shadow-md mb-4 mt-2 border border-slate-700">
+                                        <div>
+                                            <h2 id="dash-welcome" class="text-lg font-bold text-[#06B6D4]">Olá, João Silva</h2>
+                                            <p class="text-[9px] text-[#94A3B8] mt-0.5">Histórico de Ponto Efetivo</p>
+                                        </div>
+                                        <button onclick="navegarApp('login')" class="bg-[#F43F5E] text-white px-3 py-2 rounded text-[9px] font-bold shadow-md hover:bg-rose-600 transition-colors">SAIR</button>
                                     </div>
-                                    <p class="text-xs text-[#94A3B8] mb-2">Selecione o período para consulta:</p>
-                                    <div class="flex gap-2 mb-4">
-                                        <div class="bg-[#1F2937] p-2.5 rounded-lg flex-1 text-xs text-center border border-slate-700 font-medium">Julho</div>
-                                        <div class="bg-[#1F2937] p-2.5 rounded-lg flex-1 text-xs text-center border border-slate-700 font-medium">2026</div>
+                                    
+                                    <div class="flex gap-3 mb-4">
+                                        <div class="flex-1">
+                                            <label class="text-[#94A3B8] text-[8px] font-bold tracking-wider mb-1 block">MÊS DE REFERÊNCIA</label>
+                                            <div class="bg-[#E2E8F0] text-slate-800 p-2 rounded text-[10px] font-semibold">Julho</div>
+                                        </div>
+                                        <div class="flex-1">
+                                            <label class="text-[#94A3B8] text-[8px] font-bold tracking-wider mb-1 block">ANO DE EXERCÍCIO</label>
+                                            <div class="bg-[#E2E8F0] text-slate-800 p-2 rounded text-[10px] font-semibold">2026</div>
+                                        </div>
                                     </div>
-                                    <div class="flex-1 overflow-y-auto space-y-3 pb-4 scrollbar-hide">
-                                        <div class="bg-[#1F2937] p-3 rounded-lg border-l-4 border-[#10B981] shadow-md">
-                                            <div class="text-xs font-bold mb-1 text-white">Hoje - Terça-feira</div>
-                                            <div class="flex justify-between text-[11px] text-[#94A3B8]">
+
+                                    <button onclick="gerarHoleritePDF()" class="w-full bg-[#10B981] hover:bg-emerald-400 transition-colors text-white p-3 rounded font-bold text-[11px] mb-4 shadow-md shadow-emerald-500/20">
+                                        📄 EMITIR HOLERITE DIGITAL
+                                    </button>
+
+                                    <div class="flex-1 overflow-y-auto bg-[#111827] rounded-xl p-3 space-y-3 scrollbar-hide shadow-inner">
+                                        <div class="bg-[#1E293B] p-3 rounded-lg border-l-4 border-[#10B981] shadow-md">
+                                            <div class="text-[10px] font-bold mb-1 text-[#06B6D4]">Hoje - Terça-feira</div>
+                                            <div class="flex justify-between text-[9px] text-[#F8FAFC]">
                                                 <span>Entrada: 08:02</span>
-                                                <span>Saída: --:--</span>
+                                                <span class="text-[#94A3B8]">Saída: --:--</span>
                                             </div>
                                         </div>
-                                        <div class="bg-[#1F2937] p-3 rounded-lg border-l-4 border-[#E11D48] shadow-md relative">
-                                            <div class="text-xs font-bold mb-1 text-white">05/07 - Sexta-feira</div>
-                                            <div class="flex justify-between text-[11px] text-[#94A3B8]">
-                                                <span>Entrada: 08:45 <b class="text-[#E11D48]">(Atraso)</b></span>
+                                        <div class="bg-[#1E293B] p-3 rounded-lg border-l-4 border-[#E11D48] shadow-md">
+                                            <div class="text-[10px] font-bold mb-1 text-[#06B6D4]">05/07 - Sexta-feira</div>
+                                            <div class="flex justify-between text-[9px] text-[#F8FAFC]">
+                                                <span>Entrada: 08:45 <b class="text-[#F43F5E]">(Atraso)</b></span>
                                                 <span>Saída: 17:00</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="flex gap-2 pt-3 border-t border-slate-800 mt-auto">
-                                        <button onclick="navegarApp('login')" class="flex-1 bg-slate-800 hover:bg-slate-700 p-3 rounded-lg text-[10px] font-bold text-white transition-colors">SAIR</button>
-                                        <button onclick="gerarHoleritePDF()" class="flex-[1.4] bg-[#06B6D4] hover:bg-cyan-400 transition-colors p-3 rounded-lg text-[10px] font-bold text-[#111827] shadow-lg">EMITIR HOLERITE</button>
-                                    </div>
                                 </div>
 
-                                <!-- TELA PAINEL RH -->
-                                <div id="app-rh" class="hidden flex-col flex-1 h-full">
-                                    <div class="mb-4 bg-[#1F2937] -mx-4 -mt-10 pt-12 pb-4 px-4 border-b border-slate-700">
-                                        <h2 class="text-sm font-bold text-[#06B6D4]">PAINEL ADMINISTRATIVO RH</h2>
-                                        <p class="text-[10px] text-[#94A3B8] mt-1">Gestão de Equipe e Auditoria</p>
+                                <div id="app-rh" class="hidden flex-col flex-1 h-full px-5 py-2">
+                                    <div class="flex items-center justify-between mt-2 mb-1">
+                                        <h2 class="text-xl font-bold text-[#06B6D4]">Controle RH</h2>
+                                        <div class="flex gap-2">
+                                            <button onclick="navegarApp('rh-cadastro')" class="bg-[#10B981] hover:bg-emerald-400 transition-colors text-white px-3 py-2 rounded text-[9px] font-bold shadow-md">+ NOVO</button>
+                                            <button onclick="navegarApp('login')" class="bg-[#475569] hover:bg-slate-500 transition-colors text-white px-3 py-2 rounded text-[9px] font-bold shadow-md">VOLTAR</button>
+                                        </div>
                                     </div>
-                                    
-                                    <button onclick="navegarApp('rh-cadastro')" class="w-full bg-[#06B6D4] hover:bg-cyan-400 transition-colors text-[#111827] p-3 rounded-lg font-bold text-[10px] mb-3 shadow-lg shadow-cyan-500/20">
-                                        ➕ CADASTRAR COLABORADOR
-                                    </button>
+                                    <p class="text-[10px] text-[#94A3B8] mb-5">Inspecione horas ou cadastre um novo colaborador</p>
 
-                                    <div class="flex-1 overflow-y-auto space-y-2 scrollbar-hide pb-2">
-                                        <div class="bg-[#143452] p-3 rounded-lg flex items-center justify-between border border-transparent">
+                                    <div class="flex-1 overflow-y-auto bg-[#111827] rounded-xl p-2 space-y-2 scrollbar-hide shadow-inner">
+                                        <div class="bg-[#1E293B] p-3 rounded-lg flex items-center justify-between border border-transparent">
                                             <div>
-                                                <div id="rh-user-item" class="text-[11px] font-bold text-white">👤 João Silva</div>
-                                                <div class="text-[10px] text-[#94A3B8]">Mat: 104592 | ✅ Rosto OK</div>
+                                                <div id="rh-user-item" class="text-[10px] font-bold text-[#F8FAFC]">👤 João Silva</div>
+                                                <div class="text-[9px] text-[#94A3B8] mt-0.5">Mat: 104592 | ✅ Rosto OK</div>
+                                            </div>
+                                            <div class="flex gap-2 text-xs">
+                                                <span>✏️</span>
+                                                <span>🗑️</span>
+                                            </div>
+                                        </div>
+                                        <div class="bg-[#1E293B] p-3 rounded-lg flex items-center justify-between border border-transparent">
+                                            <div>
+                                                <div class="text-[10px] font-bold text-[#F8FAFC]">👤 Maria Oliveira</div>
+                                                <div class="text-[9px] text-[#94A3B8] mt-0.5">Mat: 104593 | ❌ Sem Rosto</div>
+                                            </div>
+                                            <div class="flex gap-2 text-xs">
+                                                <span>✏️</span>
+                                                <span>🗑️</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <button onclick="navegarApp('login')" class="w-full border border-slate-600 text-slate-300 p-3 rounded-lg font-bold text-[10px] mt-4">
-                                        ← VOLTAR PARA LOGIN
-                                    </button>
                                 </div>
 
-                                <!-- TELA FORMULÁRIO DE CADASTRO RH (BASEADO NO SEU XML) -->
-                                <div id="app-rh-cadastro" class="hidden flex-col flex-1 h-full">
-                                    <div class="mb-4 bg-[#1F2937] -mx-4 -mt-10 pt-12 pb-3 px-4 border-b border-slate-700">
-                                        <h2 class="text-xs font-bold text-[#06B6D4] text-center uppercase tracking-wider">Novo Colaborador</h2>
-                                    </div>
-                                    <div class="flex-1 overflow-y-auto space-y-2 scrollbar-hide pb-2 text-left">
-                                        <div>
-                                            <label class="text-[9px] text-slate-400 block mb-0.5">Matrícula</label>
-                                            <input type="text" id="cad-mat" placeholder="Ex: 001654" class="w-full bg-[#1F2937] text-white p-2 rounded-md text-[10px] outline-none border border-slate-700 focus:border-[#06B6D4]">
-                                        </div>
-                                        <div>
-                                            <label class="text-[9px] text-slate-400 block mb-0.5">Senha de Acesso</label>
-                                            <input type="password" placeholder="Senha numérica" class="w-full bg-[#1F2937] text-white p-2 rounded-md text-[10px] outline-none border border-slate-700 focus:border-[#06B6D4]">
-                                        </div>
-                                        <div>
-                                            <label class="text-[9px] text-slate-400 block mb-0.5">Nome Completo</label>
-                                            <input type="text" id="cad-nome" placeholder="Ex: Isac Gonçalves" class="w-full bg-[#1F2937] text-white p-2 rounded-md text-[10px] outline-none border border-slate-700 focus:border-[#06B6D4]">
-                                        </div>
-                                        <div>
-                                            <label class="text-[9px] text-slate-400 block mb-0.5">CPF</label>
-                                            <input type="text" placeholder="000.000.000-00" class="w-full bg-[#1F2937] text-white p-2 rounded-md text-[10px] outline-none border border-slate-700 focus:border-[#06B6D4]">
-                                        </div>
-                                        <div>
-                                            <label class="text-[9px] text-slate-400 block mb-0.5">Função / Cargo</label>
-                                            <input type="text" placeholder="Cargo" class="w-full bg-[#1F2937] text-white p-2 rounded-md text-[10px] outline-none border border-slate-700 focus:border-[#06B6D4]">
-                                        </div>
-                                        <div>
-                                            <label class="text-[9px] text-slate-400 block mb-0.5">Empresa</label>
-                                            <input type="text" value="ZACCODE SISTEMAS E TECNOLOGIA LTDA" readonly class="w-full bg-[#1F2937] text-[#38BDF8] p-2 rounded-md text-[9px] outline-none border border-slate-700">
-                                        </div>
-                                        <div>
-                                            <label class="text-[9px] text-slate-400 block mb-0.5">Salário Mensal</label>
-                                            <input type="text" value="1800.00" class="w-full bg-[#1F2937] text-[#10B981] p-2 rounded-md text-[10px] outline-none border border-slate-700 focus:border-[#06B6D4]">
-                                        </div>
+                                <div id="app-rh-cadastro" class="hidden flex-col flex-1 h-full px-5 py-2">
+                                    <h2 class="text-sm font-bold text-[#06B6D4] text-center mt-2 mb-4 tracking-wider uppercase">Novo Colaborador</h2>
+                                    
+                                    <div class="flex-1 overflow-y-auto bg-[#1E293B] rounded-xl p-4 space-y-3 scrollbar-hide shadow-md text-left">
+                                        <input type="text" id="cad-mat" placeholder="Matrícula (Ex: 001654)" class="w-full bg-[#06B6D4] text-[#F8FAFC] placeholder-[#475569] p-2.5 rounded text-[10px] outline-none">
+                                        <input type="password" placeholder="Senha de Acesso" class="w-full bg-[#06B6D4] text-[#F8FAFC] placeholder-[#475569] p-2.5 rounded text-[10px] outline-none">
+                                        <input type="text" id="cad-nome" placeholder="Nome Completo" class="w-full bg-[#06B6D4] text-[#F8FAFC] placeholder-[#475569] p-2.5 rounded text-[10px] outline-none">
+                                        <input type="text" placeholder="CPF (Apenas números)" class="w-full bg-[#06B6D4] text-[#F8FAFC] placeholder-[#475569] p-2.5 rounded text-[10px] outline-none">
+                                        <input type="text" placeholder="Função / Cargo" class="w-full bg-[#06B6D4] text-[#F8FAFC] placeholder-[#475569] p-2.5 rounded text-[10px] outline-none">
                                         
-                                        <button onclick="salvarNovoColaboradorApp()" class="w-full bg-[#06B6D4] text-[#0B0F19] p-2.5 rounded-md font-bold text-[10px] mt-3 shadow-lg shadow-cyan-500/20">
+                                        <input type="text" value="ZACCODE SISTEMAS E TECNOLOGIA LTDA" readonly class="w-full bg-[#06B6D4]/30 text-[#38BDF8] p-2.5 rounded text-[9px] outline-none font-bold">
+                                        <input type="text" value="1800.00" class="w-full bg-[#06B6D4]/30 text-[#10B981] p-2.5 rounded text-[10px] outline-none font-bold">
+                                        
+                                        <button onclick="salvarNovoColaboradorApp()" class="w-full bg-[#06B6D4] text-[#0B0F19] p-3 rounded font-bold text-[10px] mt-4 shadow-md shadow-cyan-500/20">
                                             SALVAR NO BANCO
                                         </button>
-                                        <button onclick="navegarApp('rh')" class="w-full text-slate-500 text-center text-[9px] font-bold mt-1 block">
-                                            Cancelar
+                                        <button onclick="navegarApp('rh')" class="w-full text-[#94A3B8] hover:text-[#F8FAFC] transition-colors text-center text-[9px] font-bold mt-2 block p-2">
+                                            CANCELAR E VOLTAR
                                         </button>
                                     </div>
                                 </div>
@@ -335,7 +316,6 @@
         </div>
     </section>
 
-    <!-- SEÇÃO: NOVAS FUNCIONALIDADES DETALHADAS -->
     <section id="funcionalidades" class="py-24 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
@@ -369,7 +349,6 @@
         </div>
     </section>
 
-    <!-- SEÇÃO: COMO FUNCIONA NA PRÁTICA -->
     <section id="como-funciona" class="py-24 bg-slate-900 text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(79,70,229,0.1),transparent_40%)]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -404,7 +383,6 @@
         </div>
     </section>
 
-    <!-- CALL TO ACTION FINAL -->
     <section class="bg-slate-950 text-white py-20 text-center relative overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.15),transparent_60%)]"></div>
         <div class="max-w-4xl mx-auto px-4 space-y-6 relative z-10">
@@ -416,7 +394,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="bg-slate-950 text-slate-500 py-12 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm">
             <div class="flex items-center gap-2">
@@ -429,7 +406,6 @@
         </div>
     </footer>
 
-    <!-- INTERATIVE MAIN SCRIPT -->
     <script>
         let streamAtivo = null;
         let rostoRegistrado = false;
