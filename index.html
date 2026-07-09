@@ -11,21 +11,11 @@
         html { scroll-behavior: smooth; }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        /* Animação para a digitação da IA */
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        .typewriter {
-            overflow: hidden;
-            white-space: nowrap;
-            animation: typing 2s steps(40, end);
-        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased">
 
+    <!-- CABEÇALHO -->
     <header class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -39,18 +29,19 @@
             </nav>
 
             <div>
-                <a href="#download" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all inline-flex items-center gap-2 shadow-lg shadow-blue-600/20">
-                    Baixar o App
+                <a href="https://wa.me/5521982814880?text=Quero%20garantir%20a%20vers%C3%A3o%20demo%20do%20ZACurr%C3%ADculo." target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all inline-flex items-center gap-2 shadow-lg shadow-blue-600/20">
+                    Garantir Versão Demo
                 </a>
             </div>
         </div>
     </header>
 
+    <!-- HERO SECTION -->
     <section class="relative bg-gradient-to-b from-blue-900 via-slate-900 to-slate-900 text-white pt-32 pb-20 overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.2),transparent_50%)]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
             <span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30">
-                ✨ Potencializado por Inteligência Artificial
+                ✨ Potencializado por Inteligência Artificial (Gemini AI)
             </span>
             <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight max-w-4xl mx-auto">
                 Seu passaporte para a próxima entrevista, criado na palma da mão.
@@ -59,143 +50,263 @@
                 Preencha seus dados, deixe nossa IA redigir seu objetivo profissional e exporte um currículo impecável em PDF ou Word em poucos minutos.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-                <a href="#download" class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2">
-                    📱 Baixar para Android
+                <a href="https://wa.me/5521982814880?text=Quero%20garantir%20a%20vers%C3%A3o%20demo%20do%20ZACurr%C3%ADculo." target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-600/30">
+                    📱 Baixar Versão Demo no WhatsApp
                 </a>
                 <a href="#telas" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-8 py-4 rounded-xl font-bold transition-all border border-slate-700">
-                    Ver como funciona
+                    Testar Simulador Interno
                 </a>
             </div>
         </div>
     </section>
 
+    <!-- SEÇÃO DE DEMONSTRAÇÃO DO APP (SIMULADOR AMPLIADO) -->
     <section id="telas" class="py-24 bg-slate-50 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
-                <h2 class="text-xs font-bold text-blue-600 uppercase tracking-widest">Demonstração Interativa</h2>
+                <h2 class="text-xs font-bold text-blue-600 uppercase tracking-widest">Ecossistema Interativo</h2>
                 <p class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
-                    Explore o ZACurrículo
+                    Explore TODAS as Funções do ZACurrículo
                 </p>
                 <p class="text-slate-500">
-                    Interaja com o celular abaixo para testar a Inteligência Artificial e a exportação do seu currículo.
+                    Altere as abas para conhecer os recursos internos e veja ao lado o resultado real da folha de PDF gerada!
                 </p>
             </div>
 
-            <div class="flex flex-col sm:flex-row justify-center p-1.5 bg-white backdrop-blur rounded-2xl max-w-2xl mx-auto mb-16 border border-slate-200 shadow-sm gap-1">
-                <button id="tab-form" onclick="alternarModo('form')" class="w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 bg-blue-600 text-white shadow-md">
-                    📝 Preenchimento Fácil
+            <!-- Abas de Recursos do App -->
+            <div class="flex flex-col sm:flex-row justify-center p-1.5 bg-white backdrop-blur rounded-2xl max-w-3xl mx-auto mb-16 border border-slate-200 shadow-sm gap-1">
+                <button id="tab-dados" onclick="alternarModo('dados')" class="w-full sm:flex-1 py-3 px-3 rounded-xl font-bold text-xs transition-all duration-300 bg-blue-600 text-white shadow-md">
+                    📝 Dados & Foto
                 </button>
-                <button id="tab-ia" onclick="alternarModo('ia')" class="w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900">
-                    🤖 Gerador IA
+                <button id="tab-ia" onclick="alternarModo('ia')" class="w-full sm:flex-1 py-3 px-3 rounded-xl font-bold text-xs transition-all duration-300 text-slate-600 hover:text-slate-900">
+                    🤖 Objetivo IA
                 </button>
-                <button id="tab-export" onclick="alternarModo('export')" class="w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900">
-                    📄 Exportação
+                <button id="tab-skills" onclick="alternarModo('skills')" class="w-full sm:flex-1 py-3 px-3 rounded-xl font-bold text-xs transition-all duration-300 text-slate-600 hover:text-slate-900">
+                    💡 +50 Habilidades
+                </button>
+                <button id="tab-grammar" onclick="alternarModo('grammar')" class="w-full sm:flex-1 py-3 px-3 rounded-xl font-bold text-xs transition-all duration-300 text-slate-600 hover:text-slate-900">
+                    ⚙️ Auto-Correção
+                </button>
+                <button id="tab-cloud" onclick="alternarModo('cloud')" class="w-full sm:flex-1 py-3 px-3 rounded-xl font-bold text-xs transition-all duration-300 text-slate-600 hover:text-slate-900">
+                    ☁️ Firebase & Créditos
                 </button>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-7xl mx-auto">
                 
-                <div class="lg:col-span-5 order-2 lg:order-1 text-center lg:text-left space-y-6">
+                <!-- Coluna 1: Textos Explicativos Dinâmicos -->
+                <div class="lg:col-span-3 text-center lg:text-left space-y-6 lg:mt-12">
                     <div id="conteudo-textos">
-                        <div id="texto-form" class="space-y-4 transition-all duration-300 opacity-100 block">
-                            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Layout Intuitivo</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Campos Inteligentes</h3>
-                            <p class="text-slate-600 leading-relaxed">
-                                Adicione facilmente sua foto, escolha o estilo do currículo (Tradicional ou Moderno) e preencha suas informações. O aplicativo faz o trabalho duro de diagramação para você.
+                        <div id="texto-dados" class="space-y-4 opacity-100 block">
+                            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Identidade</span>
+                            <h3 class="text-xl font-extrabold text-slate-900">Preenchimento Base</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed">
+                                Configuração de foto de perfil redonda com máscara de corte nativa e inputs limpos organizados por Estados e Cidades brasileiras direto no XML.
                             </p>
-                            <div class="bg-white border border-slate-200 rounded-xl p-4 text-sm text-slate-600 space-y-2 shadow-sm">
-                                <div class="flex items-center gap-2">✔ Lista com mais de 50 habilidades prontas</div>
-                                <div class="flex items-center gap-2">✔ Correção gramatical automática</div>
-                            </div>
                         </div>
 
-                        <div id="texto-ia" class="space-y-4 transition-all duration-300 opacity-0 hidden">
-                            <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Poder da IA</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Objetivo Profissional Automático</h3>
-                            <p class="text-slate-600 leading-relaxed">
-                                Não sabe o que escrever no seu objetivo? Nossa IA integrada atua como um especialista de RH e cria um texto perfeito baseado no cargo que você deseja. Clique no botão roxo do simulador para testar!
+                        <div id="texto-ia" class="space-y-4 opacity-0 hidden">
+                            <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Gemini AI</span>
+                            <h3 class="text-xl font-extrabold text-slate-900">Escrita Inteligente</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed">
+                                Rodízio inteligente de API Keys (Load Balancing) para garantir que o usuário nunca fique sem saldo de IA na hora de estruturar o objetivo profissional.
                             </p>
-                            <div class="bg-white border border-slate-200 rounded-xl p-4 text-sm text-slate-600 space-y-2 shadow-sm">
-                                <div class="flex items-center gap-2">✔ Resumo estratégico e compacto</div>
-                                <div class="flex items-center gap-2">✔ Adequado para folhas A4</div>
-                            </div>
                         </div>
 
-                        <div id="texto-export" class="space-y-4 transition-all duration-300 opacity-0 hidden">
-                            <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Pronto para Enviar</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">PDF e Word em um Clique</h3>
-                            <p class="text-slate-600 leading-relaxed">
-                                Após preencher seus dados, você escolhe como quer salvar. Gere um PDF travado e perfeito para enviar por e-mail, ou um arquivo Word (.doc) se precisar fazer edições manuais.
+                        <div id="texto-skills" class="space-y-4 opacity-0 hidden">
+                            <span class="bg-amber-100 text-amber-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Praticidade</span>
+                            <h3 class="text-xl font-extrabold text-slate-900">Filtro de Competências</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed">
+                                Caixa de seleção múltipla integrada contendo Soft Skills estratégicas como Comunicação Assertiva, Resiliência e Pensamento Crítico.
                             </p>
-                            <div class="bg-white border border-slate-200 rounded-xl p-4 text-sm text-slate-600 space-y-2 shadow-sm">
-                                <div class="flex items-center gap-2">✔ Formatação que não quebra</div>
-                                <div class="flex items-center gap-2">✔ Salvamento direto no celular</div>
-                            </div>
+                        </div>
+
+                        <div id="texto-grammar" class="space-y-4 opacity-0 hidden">
+                            <span class="bg-fuchsia-100 text-fuchsia-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Refinamento</span>
+                            <h3 class="text-xl font-extrabold text-slate-900">Gramática Blindada</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed">
+                                Função automática que força a primeira letra maiúscula em nomes próprios, instituições e cursos, evitando erros banais antes do envio.
+                            </p>
+                        </div>
+
+                        <div id="texto-cloud" class="space-y-4 opacity-0 hidden">
+                            <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Segurança</span>
+                            <h3 class="text-xl font-extrabold text-slate-900">Controle Cloud</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed">
+                                Consulta em tempo real ao Firebase Realtime Database puxando o ID Único do hardware para gerenciar e validar créditos de uso do app.
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-7 order-1 lg:order-2 flex justify-center">
-                    <div class="bg-slate-900 rounded-[3rem] aspect-[9/16] w-full max-w-[340px] overflow-hidden border-[10px] border-slate-800 shadow-2xl relative ring-4 ring-slate-900/10">
+                <!-- Coluna 2: Mockup do Celular (Ações do App) -->
+                <div class="lg:col-span-4 flex justify-center">
+                    <div class="bg-slate-900 rounded-[3rem] aspect-[9/16] w-full max-w-[310px] overflow-hidden border-[10px] border-slate-800 shadow-xl relative ring-4 ring-slate-900/5">
                         <div class="absolute top-3 left-1/2 transform -translate-x-1/2 w-24 h-4 bg-black rounded-full z-40"></div>
                         
-                        <div class="w-full h-full relative bg-white overflow-y-auto scrollbar-hide pt-10 pb-6 px-4">
-                            
-                            <h1 class="text-center text-xl font-bold text-slate-800 mb-6">Zacurriculo</h1>
+                        <div class="w-full h-full relative bg-white overflow-y-auto scrollbar-hide pt-10 pb-6 px-4 select-none">
+                            <h1 class="text-center text-base font-black text-slate-800 mb-4 tracking-tight">Zacurriculo</h1>
 
-                            <div class="border border-slate-300 rounded p-2 mb-4">
-                                <span class="text-[10px] text-slate-500 block mb-1">Estilo do Currículo (Layout)</span>
-                                <div class="text-xs text-slate-800 font-semibold flex justify-between">
-                                    Layout Tradicional (Clássico) <span>▼</span>
+                            <!-- Select Estilo -->
+                            <div class="border border-slate-300 rounded p-2 mb-3 bg-slate-50 cursor-pointer">
+                                <span class="text-[9px] text-slate-500 block font-bold">ESTILO DO CURRÍCULO (LAYOUT)</span>
+                                <select id="sim-estilo" onchange="atualizarEstiloPreview()" class="w-full bg-transparent text-xs text-slate-800 font-bold outline-none cursor-pointer">
+                                    <option value="classico">Layout Tradicional (Clássico)</option>
+                                    <option value="moderno">Layout Moderno (Duas Colunas)</option>
+                                </select>
+                            </div>
+
+                            <!-- Foto Perfil -->
+                            <div class="flex items-center gap-3 mb-3 p-1 bg-slate-50 border border-slate-200 rounded">
+                                <div class="w-12 h-12 bg-slate-200 rounded-full border-2 border-slate-300 flex items-center justify-center text-xl text-slate-400 overflow-hidden">
+                                    <span id="sim-foto-placeholder">👤</span>
                                 </div>
+                                <button onclick="simularUploadFoto()" class="text-blue-600 text-[10px] font-bold uppercase hover:underline">📸 Escolher Foto</button>
                             </div>
 
-                            <div class="flex items-center gap-4 mb-4">
-                                <div class="w-16 h-16 bg-slate-200 rounded-full border-2 border-slate-300 flex items-center justify-center text-2xl text-slate-400">
-                                    👤
-                                </div>
-                                <button class="text-blue-600 text-xs font-bold uppercase">📸 Selecionar Foto</button>
-                            </div>
-
-                            <input type="text" placeholder="Nome Completo" value="Isac Gonçalves" class="w-full border-b border-slate-300 pb-2 mb-4 text-xs outline-none text-slate-800 font-medium">
-                            <input type="text" id="sim-cargo" placeholder="Cargo Desejado" value="Desenvolvedor Android" class="w-full border-b border-slate-300 pb-2 mb-4 text-xs outline-none text-slate-800 font-medium">
-                            
-                            <div class="bg-slate-50 border border-slate-200 rounded-lg p-3 mb-2 transition-all">
-                                <span class="text-[10px] text-slate-500 block mb-1 font-bold uppercase">Objetivos Profissionais</span>
-                                <textarea id="sim-objetivo" class="w-full bg-transparent text-xs text-slate-700 outline-none resize-none h-16" placeholder="Seus objetivos aparecerão aqui..."></textarea>
+                            <!-- Dados Pessoais -->
+                            <div class="space-y-2 mb-3">
+                                <input type="text" id="sim-nome" value="Isac Gonçalves" oninput="sincronizarTexto()" class="w-full border border-slate-300 rounded p-1.5 text-xs outline-none text-slate-800">
+                                <input type="text" id="sim-cargo" value="Desenvolvedor Android" oninput="sincronizarTexto()" class="w-full border border-slate-300 rounded p-1.5 text-xs outline-none text-slate-800">
                             </div>
                             
-                            <button id="btn-ia-sim" onclick="simularIA()" class="w-full bg-[#673AB7] text-white py-2.5 rounded text-[11px] font-bold mb-6 shadow-md shadow-purple-500/20 transition-all active:scale-95 flex justify-center items-center gap-2">
+                            <!-- Box Objetivos & IA -->
+                            <div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 mb-2">
+                                <span class="text-[9px] text-slate-500 block font-bold uppercase">Objetivos Profissionais</span>
+                                <textarea id="sim-objetivo" oninput="sincronizarTexto()" class="w-full bg-transparent text-[11px] text-slate-700 outline-none resize-none h-12">Atuar no desenvolvimento de sistemas mobile eficientes utilizando arquiteturas limpas.</textarea>
+                            </div>
+                            
+                            <button id="btn-ia-sim" onclick="simularIA()" class="w-full bg-[#673AB7] text-white py-2 rounded text-[10px] font-bold mb-3 shadow shadow-purple-500/20 active:scale-95 transition-all">
                                 ✨ GERAR OBJETIVO COM IA
                             </button>
 
-                            <div class="border-t border-slate-200 pt-4 mb-4">
-                                <span class="text-xs font-bold text-slate-800 block mb-2">Experiência Profissional</span>
-                                <div class="bg-slate-100 p-2 rounded text-[10px] text-slate-600 mb-2">ZacCode - Desenvolvedor Mobile (2023-Atual)</div>
-                                <button class="text-blue-600 text-[10px] font-bold uppercase w-full text-left">➕ Adicionar Outra</button>
+                            <!-- Habilidades Interativas -->
+                            <div class="border border-slate-200 rounded p-2 mb-3 bg-slate-50">
+                                <span class="text-[9px] text-slate-500 block font-bold mb-1">SKILLS SELECIONADAS</span>
+                                <div id="sim-skills-container" class="flex flex-wrap gap-1">
+                                    <span class="bg-slate-200 text-slate-700 text-[9px] px-1.5 py-0.5 rounded">Comunicação</span>
+                                    <span class="bg-slate-200 text-slate-700 text-[9px] px-1.5 py-0.5 rounded">Trabalho em Equipe</span>
+                                </div>
+                                <button onclick="simularTrocaSkills()" class="text-purple-700 text-[9px] font-extrabold mt-1 block uppercase hover:underline">🔄 Alternar Habilidades (+50)</button>
                             </div>
 
-                            <div class="mt-8 space-y-3 pb-8">
-                                <button class="w-full bg-[#8E24AA] text-white py-3 rounded text-[10px] font-bold shadow-md shadow-fuchsia-500/20 active:scale-95">
-                                    📝 CORREÇÃO DE GRAMÁTICA
+                            <!-- Botões de Ação Dinâmicos -->
+                            <div class="space-y-2 pt-2 border-t border-slate-200">
+                                <button onclick="simularGramatica()" class="w-full bg-[#8E24AA] text-white py-2 rounded text-[9px] font-bold active:scale-95 transition-all">
+                                    📝 CORREÇÃO DE GRAMÁTICA (AUTO)
                                 </button>
                                 
-                                <button onclick="simularGeracao('pdf')" class="w-full bg-black text-white py-4 rounded text-xs font-bold shadow-lg shadow-black/20 active:scale-95 relative overflow-hidden group">
+                                <button onclick="simularGeracao('pdf')" class="w-full bg-black text-white py-3 rounded text-[11px] font-bold shadow active:scale-95 transition-all">
                                     <span id="txt-pdf">GERAR CURRÍCULO (PDF)</span>
                                 </button>
                                 
-                                <button onclick="simularGeracao('word')" class="w-full bg-[#2B579A] text-white py-4 rounded text-xs font-bold shadow-lg shadow-blue-900/20 active:scale-95">
+                                <button onclick="simularGeracao('word')" class="w-full bg-[#2B579A] text-white py-3 rounded text-[11px] font-bold shadow active:scale-95 transition-all">
                                     <span id="txt-word">EXPORTAR PARA WORD (.DOC)</span>
                                 </button>
                             </div>
 
-                            <div id="overlay-sucesso" class="absolute inset-0 bg-green-500/95 hidden flex-col items-center justify-center z-50 text-white p-6 text-center backdrop-blur-sm">
-                                <span class="text-5xl mb-3">✔️</span>
-                                <h3 class="font-extrabold text-lg uppercase tracking-wider">Sucesso!</h3>
-                                <p id="msg-sucesso" class="text-xs font-medium mt-2">Arquivo salvo no dispositivo.</p>
+                            <!-- Overlay de Sucesso -->
+                            <div id="overlay-sucesso" class="absolute inset-0 bg-emerald-600/95 hidden flex-col items-center justify-center z-50 text-white p-6 text-center backdrop-blur-sm">
+                                <span class="text-4xl mb-2">✔️</span>
+                                <h3 class="font-extrabold text-sm uppercase">Processado!</h3>
+                                <p id="msg-sucesso" class="text-[11px] mt-1">Documento emitido com sucesso.</p>
                             </div>
 
                         </div>
+                    </div>
+                </div>
+
+                <!-- Coluna 3: Visualizador do PDF Gerado (Resultados Finais) -->
+                <div class="lg:col-span-5 w-full flex flex-col items-center">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 block">📄 Visualização do PDF de Saída</span>
+                    
+                    <div id="pdf-preview-canvas" class="w-full max-w-[420px] bg-white border border-slate-300 shadow-2xl rounded-sm aspect-[1/1.414] p-8 text-slate-800 transition-all duration-500 relative overflow-hidden">
+                        
+                        <!-- Layout Tradicional (Clássico) Container -->
+                        <div id="preview-classico" class="space-y-4 block text-left">
+                            <div class="border-b-2 border-slate-800 pb-3 text-center">
+                                <h2 id="pdf-nome-c" class="text-2xl font-black text-slate-900 tracking-wide uppercase">Isac Gonçalves</h2>
+                                <p id="pdf-cargo-c" class="text-sm font-bold text-slate-600 tracking-wider mt-0.5">Desenvolvedor Android</p>
+                                <p class="text-[10px] text-slate-500 mt-1">Rio de Janeiro, RJ | Tel: (21) 98281-4880 | email@exemplo.com</p>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xs font-bold text-slate-900 bg-slate-100 px-1 py-0.5 uppercase tracking-wider border-l-2 border-slate-800">Objetivo Profissional</h3>
+                                <p id="pdf-obj-c" class="text-[10px] text-slate-600 leading-relaxed mt-1.5">Atuar no desenvolvimento de sistemas mobile eficientes utilizando arquiteturas limpas.</p>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xs font-bold text-slate-900 bg-slate-100 px-1 py-0.5 uppercase tracking-wider border-l-2 border-slate-800">Experiência Profissional</h3>
+                                <div class="mt-1.5 text-[10px]">
+                                    <div class="flex justify-between font-bold text-slate-800">
+                                        <span>ZacCode Sistemas e Tecnologia LTDA</span>
+                                        <span>2023 - Atual</span>
+                                    </div>
+                                    <p class="text-slate-500 italic">Desenvolvedor Android Júnior</p>
+                                    <p class="text-slate-600 mt-1">Atuação direta no desenvolvimento nativo em Kotlin, arquitetura MVVM, consumo de APIs REST e integrações Firebase.</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xs font-bold text-slate-900 bg-slate-100 px-1 py-0.5 uppercase tracking-wider border-l-2 border-slate-800">Formação Acadêmica</h3>
+                                <p class="text-[10px] text-slate-600 mt-1.5 font-bold">Graduação em Análise e Desenvolvimento de Sistemas</p>
+                                <p class="text-[9px] text-slate-500">Universidade Estácio de Sá — Concluído</p>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xs font-bold text-slate-900 bg-slate-100 px-1 py-0.5 uppercase tracking-wider border-l-2 border-slate-800">Principais Habilidades</h3>
+                                <div id="pdf-skills-c" class="flex flex-wrap gap-1.5 mt-2 text-[9px] text-slate-700">
+                                    <span class="border border-slate-300 px-1.5 py-0.5 bg-slate-50 rounded">Comunicação</span>
+                                    <span class="border border-slate-300 px-1.5 py-0.5 bg-slate-50 rounded">Trabalho em Equipe</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Layout Moderno (Duas Colunas) Container -->
+                        <div id="preview-moderno" class="absolute inset-0 grid grid-cols-12 hidden text-left h-full">
+                            <!-- Coluna Esquerda Escura -->
+                            <div class="col-span-4 bg-slate-900 text-slate-300 p-4 pt-8 flex flex-col gap-5 h-full">
+                                <div class="w-20 h-20 bg-slate-700 rounded-full mx-auto border-2 border-slate-600 overflow-hidden flex items-center justify-center text-3xl">
+                                    <span id="pdf-foto-moderna">👨‍💻</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-[10px] font-bold text-white uppercase tracking-wider mb-1 border-b border-slate-700 pb-1">Contato</h4>
+                                    <p class="text-[8px] text-slate-400 break-all leading-tight">📍 Rio de Janeiro, RJ<br>📞 (21) 98281-4880<br>✉️ email@exemplo.com</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-[10px] font-bold text-white uppercase tracking-wider mb-1 border-b border-slate-700 pb-1">Habilidades</h4>
+                                    <div id="pdf-skills-m" class="flex flex-col gap-1 mt-1 text-[8px]">
+                                        <span class="bg-slate-800 px-1 py-0.5 rounded text-white">Comunicação</span>
+                                        <span class="bg-slate-800 px-1 py-0.5 rounded text-white">Trabalho em Equipe</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Coluna Direita Clara -->
+                            <div class="col-span-8 p-6 pt-8 space-y-4 bg-white h-full">
+                                <div>
+                                    <h2 id="pdf-nome-m" class="text-xl font-extrabold text-slate-900 uppercase">Isac Gonçalves</h2>
+                                    <p id="pdf-cargo-m" class="text-xs font-bold text-blue-600 tracking-wide mt-0.5">Desenvolvedor Android</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-[10px] font-extrabold text-slate-900 uppercase tracking-widest border-l-2 border-blue-600 pl-1.5 mb-1">Perfil</h4>
+                                    <p id="pdf-obj-m" class="text-[9px] text-slate-600 leading-relaxed">Atuar no desenvolvimento de sistemas mobile eficientes utilizando arquiteturas limpas.</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-[10px] font-extrabold text-slate-900 uppercase tracking-widest border-l-2 border-blue-600 pl-1.5 mb-1">Experiência</h4>
+                                    <div class="text-[9px] text-slate-700 mt-1">
+                                        <span class="font-bold block text-slate-900">ZacCode — Tech Lead Mobile</span>
+                                        <span class="text-[8px] text-slate-400 block mb-0.5">2023 - Atualmente</span>
+                                        <p class="text-slate-600 leading-tight">Atuação direta no desenvolvimento nativo em Kotlin, arquitetura MVVM, consumo de APIs REST e integrações Firebase.</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-[10px] font-extrabold text-slate-900 uppercase tracking-widest border-l-2 border-blue-600 pl-1.5 mb-1">Educação</h4>
+                                    <p class="text-[9px] font-bold text-slate-800 mt-1">Análise e Des. de Sistemas</p>
+                                    <p class="text-[8px] text-slate-400">Estácio de Sá</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -203,10 +314,11 @@
         </div>
     </section>
 
+    <!-- RECURSOS TÉCNICOS DETALHADOS -->
     <section id="funcionalidades" class="py-24 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                <h2 class="text-xs font-bold text-blue-600 uppercase tracking-widest">O que oferecemos</h2>
+                <h2 class="text-xs font-bold text-blue-600 uppercase tracking-widest">Diferenciais Técnicos</h2>
                 <p class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Um aplicativo completo para a sua carreira</p>
                 <p class="text-slate-500">Desenvolvido com tecnologia nativa para garantir velocidade e qualidade na hora de buscar um emprego.</p>
             </div>
@@ -236,6 +348,7 @@
         </div>
     </section>
 
+    <!-- COMO FUNCIONA -->
     <section id="como-funciona" class="py-24 bg-blue-900 text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.1),transparent_40%)]"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -269,82 +382,141 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="bg-slate-950 text-slate-500 py-12 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm">
             <div class="flex items-center gap-2">
                 <span class="text-white font-bold tracking-tight">ZA<span class="text-blue-500">Currículo</span></span>
                 <span>© 2026. Todos os direitos reservados.</span>
             </div>
+            <div class="text-xs text-slate-400">
+                Suporte WhatsApp: +55 (21) 98281-4880
+            </div>
         </div>
     </footer>
 
+    <!-- INTERATIVIDADE SCRIPT AVANÇADA -->
     <script>
-        // Alternar as abas informativas
+        // Mapeamento das Abas Principais
         function alternarModo(modo) {
-            const modos = ['form', 'ia', 'export'];
-
+            const modos = ['dados', 'ia', 'skills', 'grammar', 'cloud'];
             modos.forEach(m => {
                 const btn = document.getElementById(`tab-${m}`);
                 const txt = document.getElementById(`texto-${m}`);
-                
                 if (m === modo) {
-                    btn.className = "w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 bg-blue-600 text-white shadow-md";
-                    txt.classList.remove('hidden'); 
-                    setTimeout(() => txt.classList.add('opacity-100'), 50);
+                    btn.className = "w-full sm:flex-1 py-3 px-3 rounded-xl font-bold text-xs transition-all duration-300 bg-blue-600 text-white shadow-md";
+                    txt.classList.remove('hidden'); txt.classList.add('opacity-100');
                 } else {
-                    btn.className = "w-full sm:w-1/3 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-300 text-slate-600 hover:text-slate-900";
-                    txt.classList.add('hidden'); 
-                    txt.classList.remove('opacity-100');
+                    btn.className = "w-full sm:flex-1 py-3 px-3 rounded-xl font-bold text-xs transition-all duration-300 text-slate-600 hover:text-slate-900";
+                    txt.classList.add('hidden'); txt.classList.remove('opacity-100');
                 }
             });
         }
 
-        // Simulação do botão da Inteligência Artificial do Google
+        // Sincronização Dinâmica do Mockup com a Folha A4
+        function sincronizarTexto() {
+            const nome = document.getElementById('sim-nome').value;
+            const cargo = document.getElementById('sim-cargo').value;
+            const objetivo = document.getElementById('sim-objetivo').value;
+
+            // Altera no layout clássico
+            document.getElementById('pdf-nome-c').innerText = nome;
+            document.getElementById('pdf-cargo-c').innerText = cargo;
+            document.getElementById('pdf-obj-c').innerText = objetivo;
+
+            // Altera no layout moderno
+            document.getElementById('pdf-nome-m').innerText = nome;
+            document.getElementById('pdf-cargo-m').innerText = cargo;
+            document.getElementById('pdf-obj-m').innerText = objetivo;
+        }
+
+        // Alternância dos layouts na Folha A4 baseado no select do app
+        function atualizarEstiloPreview() {
+            const estilo = document.getElementById('sim-estilo').value;
+            const previewClassico = document.getElementById('preview-classico');
+            const previewModerno = document.getElementById('preview-moderno');
+
+            if(estilo === 'moderno') {
+                previewClassico.classList.add('hidden');
+                previewModerno.classList.remove('hidden');
+            } else {
+                previewClassico.classList.remove('hidden');
+                previewModerno.classList.add('hidden');
+            }
+        }
+
+        // Simula upload de foto (Altera avatar no modo moderno)
+        function simularUploadFoto() {
+            const placeholder = document.getElementById('sim-foto-placeholder');
+            placeholder.innerText = "🚀";
+            document.getElementById('pdf-foto-moderna').innerText = "🚀";
+            alert("Foto carregada com sucesso via ActivityResult nativo!");
+        }
+
+        // Simula geração com Inteligência Artificial
         function simularIA() {
             const btnIA = document.getElementById('btn-ia-sim');
             const textArea = document.getElementById('sim-objetivo');
             const cargo = document.getElementById('sim-cargo').value || 'Profissional';
             
-            btnIA.innerText = "⏳ Escrevendo...";
+            btnIA.innerText = "⏳ Consultando Gemini API...";
             btnIA.classList.add('opacity-75', 'cursor-not-allowed');
-            textArea.value = "";
 
             setTimeout(() => {
                 btnIA.innerText = "✨ GERAR OBJETIVO COM IA";
                 btnIA.classList.remove('opacity-75', 'cursor-not-allowed');
                 
-                const textoGerado = `Profissional dedicado e proativo, em busca da oportunidade como ${cargo}. Foco em contribuir para o crescimento da empresa com minhas habilidades técnicas e facilidade de trabalhar em equipe, sempre buscando inovação e resultados.`;
-                
-                textArea.value = textoGerado;
-                
-                // Destaca o campo text area
-                textArea.parentElement.classList.add('ring-2', 'ring-purple-500', 'bg-purple-50');
-                setTimeout(() => textArea.parentElement.classList.remove('ring-2', 'ring-purple-500', 'bg-purple-50'), 1500);
-
-            }, 1800);
+                textArea.value = `Profissional focado em resultados como ${cargo}, unindo conhecimento prático e facilidade no trabalho corporativo para somar à equipe de desenvolvimento.`;
+                sincronizarTexto();
+            }, 1200);
         }
 
-        // Simulação da geração de PDF e Word
+        // Simula a troca das habilidades baseadas nas 50 cadastradas
+        let conjuntoSkillsAlternado = false;
+        function simularTrocaSkills() {
+            const containerApp = document.getElementById('sim-skills-container');
+            const containerPdfC = document.getElementById('pdf-skills-c');
+            const containerPdfM = document.getElementById('pdf-skills-m');
+
+            if(!conjuntoSkillsAlternado) {
+                const novasSkills = ["Proatividade", "Pensamento Crítico", "Adaptabilidade"];
+                containerApp.innerHTML = novasSkills.map(s => `<span class="bg-purple-100 text-purple-700 text-[9px] px-1.5 py-0.5 rounded">${s}</span>`).join('');
+                containerPdfC.innerHTML = novasSkills.map(s => `<span class="border border-slate-300 px-1.5 py-0.5 bg-purple-50 rounded">${s}</span>`).join('');
+                containerPdfM.innerHTML = novasSkills.map(s => `<span class="bg-slate-800 px-1 py-0.5 rounded text-white">${s}</span>`).join('');
+                conjuntoSkillsAlternado = true;
+            } else {
+                const skillsOriginais = ["Comunicação", "Trabalho em Equipe"];
+                containerApp.innerHTML = skillsOriginais.map(s => `<span class="bg-slate-200 text-slate-700 text-[9px] px-1.5 py-0.5 rounded">${s}</span>`).join('');
+                containerPdfC.innerHTML = skillsOriginais.map(s => `<span class="border border-slate-300 px-1.5 py-0.5 bg-slate-50 rounded">${s}</span>`).join('');
+                containerPdfM.innerHTML = skillsOriginais.map(s => `<span class="bg-slate-800 px-1 py-0.5 rounded text-white">${s}</span>`).join('');
+                conjuntoSkillsAlternado = false;
+            }
+        }
+
+        // Algoritmo simplificado de UpperCaseFirst (Como feito no Kotlin fornecido)
+        function simularGramatica() {
+            const nInput = document.getElementById('sim-nome');
+            const cInput = document.getElementById('sim-cargo');
+
+            const arrumar = (txt) => txt.toLowerCase().split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+
+            nInput.value = arrumar(nInput.value);
+            cInput.value = arrumar(cInput.value);
+            sincronizarTexto();
+            alert("Filtro aplicado: Nomes formatados com sucesso!");
+        }
+
+        // Simulação do Fluxo Final
         function simularGeracao(tipo) {
-            const btnId = tipo === 'pdf' ? 'txt-pdf' : 'txt-word';
-            const btn = document.getElementById(btnId);
             const overlay = document.getElementById('overlay-sucesso');
             const msg = document.getElementById('msg-sucesso');
             
-            const textoOriginal = btn.innerText;
-            btn.innerText = "PROCESSANDO...";
-
+            msg.innerText = tipo === 'pdf' ? "Descontando crédito Firebase... PDF Gerado!" : "Exportado para arquivo Word (.DOC) com sucesso!";
+            overlay.classList.remove('hidden'); overlay.classList.add('flex');
+            
             setTimeout(() => {
-                btn.innerText = textoOriginal;
-                msg.innerText = tipo === 'pdf' ? "Currículo em PDF gerado com sucesso!" : "Arquivo Word (.DOC) salvo com sucesso!";
-                overlay.classList.remove('hidden');
-                overlay.classList.add('flex');
-                
-                setTimeout(() => {
-                    overlay.classList.add('hidden');
-                    overlay.classList.remove('flex');
-                }, 2500);
-            }, 1000);
+                overlay.classList.add('hidden'); overlay.classList.remove('flex');
+            }, 2200);
         }
     </script>
 </body>
